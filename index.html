@@ -5,71 +5,2456 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Python Zero to Hero + Professional English for IT Careers</title>
 <style>
-:root{--bg:#ffffff;--card:#f5f7fb;--text:#1b2430;--muted:#5b6778;--accent:#2563eb;--border:#dde3ee}
-@media (prefers-color-scheme:dark){:root{--bg:#0f1520;--card:#18212f;--text:#e8edf5;--muted:#9aa7b8;--accent:#6ea8ff;--border:#2a3548}}
+:root{--bg:#fff;--side:#f5f7fb;--card:#f5f7fb;--text:#1b2430;--muted:#5b6778;--accent:#2563eb;--border:#dde3ee;--code:#f3f5f9}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1520;--side:#131b28;--card:#18212f;--text:#e8edf5;--muted:#9aa7b8;--accent:#6ea8ff;--border:#2a3548;--code:#0b111b}}
 *{box-sizing:border-box}
-body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
-.wrap{max-width:980px;margin:0 auto;padding:0 20px}
-header{padding:56px 0 32px;text-align:center}
-h1{font-size:clamp(1.8rem,5vw,2.8rem);margin:0 0 12px;line-height:1.2}
-header p{color:var(--muted);font-size:1.1rem;max-width:640px;margin:0 auto 24px}
-.btn{display:inline-block;padding:10px 20px;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;margin:4px}
-.btn.alt{background:transparent;color:var(--accent);border:1px solid var(--accent)}
-h2{margin:40px 0 16px;font-size:1.5rem}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px}
-.card h3{margin:0 0 8px;font-size:1.05rem}
-.card p{margin:0 0 10px;color:var(--muted);font-size:.95rem}
-.card a{color:var(--accent);text-decoration:none;font-weight:600;font-size:.95rem}
-.card a:hover{text-decoration:underline}
-.table-wrap{overflow-x:auto}
-table{border-collapse:collapse;width:100%;min-width:520px}
-th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--border);font-size:.95rem}
-th{color:var(--muted);font-weight:600}
-pre{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;overflow-x:auto;font-size:.9rem}
-footer{padding:40px 0;text-align:center;color:var(--muted);font-size:.9rem}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.65}
+a{color:var(--accent)}
+.top{display:none;position:sticky;top:0;z-index:20;background:var(--side);border-bottom:1px solid var(--border);padding:10px 14px;align-items:center;gap:12px}
+.top button{background:none;border:1px solid var(--border);color:var(--text);border-radius:6px;font-size:1.2rem;padding:2px 10px;cursor:pointer}
+.top b{font-size:1rem}
+.layout{display:flex;min-height:100vh}
+aside{width:290px;flex:none;background:var(--side);border-right:1px solid var(--border);padding:18px 14px;position:sticky;top:0;height:100vh;overflow-y:auto}
+aside .brand{font-weight:700;font-size:1.05rem;margin:0 4px 12px;display:block;color:var(--text);text-decoration:none}
+aside input{width:100%;padding:8px 10px;border-radius:8px;border:1px solid var(--border);background:var(--bg);color:var(--text);margin-bottom:10px}
+aside ul{list-style:none;margin:4px 0 8px;padding:0}
+aside summary{cursor:pointer;font-weight:600;padding:6px 4px;color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.04em}
+.nl{display:block;padding:5px 10px;border-radius:6px;color:var(--text);text-decoration:none;font-size:.92rem}
+.nl:hover{background:var(--border)}
+.nl.on{background:var(--accent);color:#fff}
+.nl.ok::after{content:" \2713";color:#16a34a;font-weight:700}
+.nl.on.ok::after{color:#fff}
+main{flex:1;min-width:0;padding:32px 28px 60px}
+.page{max-width:820px;margin:0 auto}
+h1{font-size:clamp(1.6rem,4vw,2.2rem);line-height:1.25;margin:0 0 16px}
+h2{margin:32px 0 12px;font-size:1.35rem;border-bottom:1px solid var(--border);padding-bottom:6px}
+h3{margin:22px 0 8px}
+blockquote{margin:14px 0;padding:6px 16px;border-left:4px solid var(--accent);background:var(--card);border-radius:0 8px 8px 0;color:var(--muted)}
+code{background:var(--code);padding:2px 6px;border-radius:5px;font-size:.9em}
+pre{position:relative;background:var(--code);border:1px solid var(--border);border-radius:10px;padding:14px;overflow-x:auto;font-size:.88rem;line-height:1.5;margin:0 0 16px}
+pre code{background:none;padding:0}
+.fname{font-size:.8rem;color:var(--muted);margin:14px 0 4px;font-family:ui-monospace,Consolas,monospace}
+.cp{position:absolute;top:6px;right:6px;font-size:.75rem;padding:3px 9px;border-radius:6px;border:1px solid var(--border);background:var(--bg);color:var(--text);cursor:pointer}
+details.sol{border:1px solid var(--border);border-radius:10px;padding:8px 14px;margin:10px 0}
+details.sol summary{cursor:pointer;font-weight:600}
+.tw,.page>table{overflow-x:auto}
+table{border-collapse:collapse;width:100%;margin:12px 0;display:block;overflow-x:auto}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--border);font-size:.94rem;vertical-align:top}
+th{color:var(--muted)}
+.hero{text-align:center;padding:30px 0 10px}
+.hero p{color:var(--muted);font-size:1.1rem;max-width:620px;margin:0 auto 22px}
+.btn{display:inline-block;padding:10px 20px;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;margin:4px;border:1px solid var(--accent);cursor:pointer;font-size:.95rem}
+.btn.alt{background:transparent;color:var(--accent)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;text-decoration:none;color:var(--text);display:block}
+.card:hover{border-color:var(--accent)}
+.card h3{margin:0 0 6px;font-size:1.02rem}.card p{margin:0;color:var(--muted);font-size:.92rem}
+.done{margin-top:34px}
+.pn{display:flex;justify-content:space-between;gap:12px;max-width:820px;margin:30px auto 0;flex-wrap:wrap}
+footer{max-width:820px;margin:30px auto 0;color:var(--muted);font-size:.85rem;text-align:center}
+@media(max-width:860px){
+ .top{display:flex}
+ aside{position:fixed;left:0;top:0;z-index:30;transform:translateX(-100%);transition:transform .2s;width:290px}
+ aside.open{transform:none}
+ main{padding:20px 16px 50px}
+}
 </style>
 </head>
 <body>
-<div class="wrap">
-<header>
+<div class="top"><button id="menu" aria-label="Menu">&#9776;</button><b>Python Zero to Hero</b></div>
+<div class="layout">
+<aside id="side">
+<a class="brand" href="#home">Python Zero to Hero<br><small style="font-weight:400;color:var(--muted)">+ English for IT careers</small></a>
+<input id="q" type="search" placeholder="Search lessons...">
+<a class="nl" href="#home" data-id="home">Home</a>
+<details data-g><summary>Start Here</summary><ul><li><a class="nl" href="#docs-roadmap" data-id="docs-roadmap">16-Week Roadmap: Zero to Job-Ready</a></li><li><a class="nl" href="#docs-certifications" data-id="docs-certifications">Python and IT Certifications: Options</a></li></ul></details>
+<details data-g><summary>Python Modules</summary><ul><li><a class="nl" href="#modules-01_basics" data-id="modules-01_basics">Module 01: Basics</a></li><li><a class="nl" href="#modules-02_control_flow" data-id="modules-02_control_flow">Module 02: Control Flow</a></li><li><a class="nl" href="#modules-03_functions" data-id="modules-03_functions">Module 03: Functions</a></li><li><a class="nl" href="#modules-04_data_structures" data-id="modules-04_data_structures">Module 04: Data Structures</a></li><li><a class="nl" href="#modules-05_oop" data-id="modules-05_oop">Module 05: Object-Oriented Programming</a></li><li><a class="nl" href="#modules-06_files_and_errors" data-id="modules-06_files_and_errors">Module 06: Files and Error Handling</a></li><li><a class="nl" href="#modules-07_modules_venv_git" data-id="modules-07_modules_venv_git">Module 07: Modules, Virtual Environments, Git and GitHub</a></li><li><a class="nl" href="#modules-08_automation" data-id="modules-08_automation">Module 08: Automation with the Standard Library</a></li><li><a class="nl" href="#modules-09_testing_debugging" data-id="modules-09_testing_debugging">Module 09: Testing and Debugging</a></li><li><a class="nl" href="#modules-10_web_and_apis" data-id="modules-10_web_and_apis">Module 10: Web and APIs</a></li><li><a class="nl" href="#modules-11_data_analysis" data-id="modules-11_data_analysis">Module 11: Data Analysis with pandas</a></li><li><a class="nl" href="#modules-12_fastapi_and_sql" data-id="modules-12_fastapi_and_sql">Module 12: FastAPI and SQL</a></li></ul></details>
+<details data-g><summary>Portfolio Projects</summary><ul><li><a class="nl" href="#projects-01_expense_tracker" data-id="projects-01_expense_tracker">Project 1: Expense Tracker (CLI)</a></li><li><a class="nl" href="#projects-02_log_analyzer" data-id="projects-02_log_analyzer">Project 2: Log Analyzer</a></li><li><a class="nl" href="#projects-03_file_organizer" data-id="projects-03_file_organizer">Project 3: File Organizer</a></li><li><a class="nl" href="#projects-04_api_client" data-id="projects-04_api_client">Project 4: API Client</a></li><li><a class="nl" href="#projects-05_sales_analysis" data-id="projects-05_sales_analysis">Project 5: Sales Analysis</a></li><li><a class="nl" href="#projects-06_todo_api" data-id="projects-06_todo_api">Project 6: To-do REST API (FastAPI + SQLite)</a></li></ul></details>
+<details data-g><summary>Spoken English</summary><ul><li><a class="nl" href="#english-README" data-id="english-README">Spoken English and Presentation Skills for IT Careers</a></li><li><a class="nl" href="#english-90_day_plan" data-id="english-90_day_plan">90-Day Spoken English Plan</a></li><li><a class="nl" href="#english-daily_routine" data-id="english-daily_routine">30-Minute Daily Routine</a></li><li><a class="nl" href="#english-fluency_techniques" data-id="english-fluency_techniques">Fluency Techniques</a></li><li><a class="nl" href="#english-interview_english" data-id="english-interview_english">Interview English: Structures and Sample Answers</a></li><li><a class="nl" href="#english-phrase_bank" data-id="english-phrase_bank">Phrase Bank for Meetings and Presentations</a></li><li><a class="nl" href="#english-presentation_framework" data-id="english-presentation_framework">How to Present in English (Fluent and Clear)</a></li><li><a class="nl" href="#english-self_review_checklist" data-id="english-self_review_checklist">Self-Review Checklist for Recordings</a></li><li><a class="nl" href="#english-tech_vocabulary" data-id="english-tech_vocabulary">IT Vocabulary: Say It Correctly</a></li><li><a class="nl" href="#english-script-incident_update" data-id="english-script-incident_update">Script: Explaining a Problem or Incident</a></li><li><a class="nl" href="#english-script-meeting_phrases" data-id="english-script-meeting_phrases">Script: Speaking Up in Meetings</a></li><li><a class="nl" href="#english-script-project_demo" data-id="english-script-project_demo">Script: Project Demo (3 minutes)</a></li><li><a class="nl" href="#english-script-self_introduction" data-id="english-script-self_introduction">Script: Self-Introduction (60 seconds)</a></li><li><a class="nl" href="#english-script-standup_update" data-id="english-script-standup_update">Script: Daily Stand-up (30 seconds)</a></li></ul></details>
+<details data-g><summary>Career Toolkit</summary><ul><li><a class="nl" href="#career-README" data-id="career-README">Career Toolkit: Getting Hired in IT</a></li><li><a class="nl" href="#career-dsa_practice" data-id="career-dsa_practice">Easy Data Structures and Algorithms Practice</a></li><li><a class="nl" href="#career-github_linkedin" data-id="career-github_linkedin">GitHub and LinkedIn</a></li><li><a class="nl" href="#career-interview_questions" data-id="career-interview_questions">Python and General Interview Questions</a></li><li><a class="nl" href="#career-job_search_plan" data-id="career-job_search_plan">Job Search Plan</a></li><li><a class="nl" href="#career-resume_guide" data-id="career-resume_guide">One-Page Resume Guide (Fresher)</a></li></ul></details>
+<details data-g><summary>Practice Tools</summary><ul><li><a class="nl" href="#tools-speaking_tracker" data-id="tools-speaking_tracker">Speaking Practice Tracker</a></li><li><a class="nl" href="#tools-wpm_calculator" data-id="tools-wpm_calculator">Words-per-Minute Calculator</a></li></ul></details>
+</aside>
+<main>
+<section class="page" id="p-home" hidden>
+<div class="hero">
   <h1>Python Zero to Hero<br>+ Professional English for IT Careers</h1>
-  <p>A free, hands-on roadmap: from no coding experience to a job-ready Python developer, with fluent spoken English and presentation skills for interviews and meetings.</p>
-  <a class="btn" href="https://github.com/Neuro-eng/python-zero-to-hero">View on GitHub</a>
-  <a class="btn alt" href="#start">Quick start</a>
-</header>
-
+  <p>A free, hands-on course: from no coding experience to a job-ready Python developer, with fluent spoken English and presentation skills for interviews and meetings.</p>
+  <a class="btn" href="#modules-01_basics">Start learning</a>
+  <a class="btn alt" href="#docs-roadmap">See the 16-week roadmap</a>
+</div>
 <h2>What you get</h2>
 <div class="grid">
-  <div class="card"><h3>12 Python modules</h3><p>Basics to FastAPI and SQL, with examples, exercises and tested solutions.</p><a href="https://github.com/Neuro-eng/python-zero-to-hero/tree/main/modules">Open modules</a></div>
-  <div class="card"><h3>6 portfolio projects</h3><p>Expense tracker, log analyzer, file organizer, API client, sales analysis, to-do REST API.</p><a href="https://github.com/Neuro-eng/python-zero-to-hero/tree/main/projects">Open projects</a></div>
-  <div class="card"><h3>Spoken English</h3><p>90-day plan, presentation framework, phrase bank, interview answers and scripts.</p><a href="https://github.com/Neuro-eng/python-zero-to-hero/tree/main/english">Open English section</a></div>
-  <div class="card"><h3>Career toolkit</h3><p>Resume guide, GitHub and LinkedIn tips, job-search plan, 50 interview questions.</p><a href="https://github.com/Neuro-eng/python-zero-to-hero/tree/main/career">Open career kit</a></div>
-  <div class="card"><h3>Practice tools</h3><p>Speaking-practice tracker and words-per-minute calculator.</p><a href="https://github.com/Neuro-eng/python-zero-to-hero/tree/main/tools">Open tools</a></div>
-  <div class="card"><h3>16-week roadmap</h3><p>Week-by-week plan, plus a certification guide (PCEP, PCAP and more).</p><a href="https://github.com/Neuro-eng/python-zero-to-hero/blob/main/docs/roadmap.md">Read roadmap</a></div>
+  <a class="card" href="#modules-01_basics"><h3>12 Python modules</h3><p>Basics to FastAPI and SQL, with examples, exercises and solutions.</p></a>
+  <a class="card" href="#projects-01_expense_tracker"><h3>6 portfolio projects</h3><p>Expense tracker, log analyzer, file organizer, API client, sales analysis, REST API.</p></a>
+  <a class="card" href="#english-README"><h3>Spoken English</h3><p>90-day plan, presentation framework, phrase bank, interview answers, scripts.</p></a>
+  <a class="card" href="#career-README"><h3>Career toolkit</h3><p>Resume guide, LinkedIn tips, job-search plan, 50 interview questions.</p></a>
+  <a class="card" href="#tools-speaking_tracker"><h3>Practice tools</h3><p>Speaking tracker and words-per-minute calculator you can run yourself.</p></a>
+  <a class="card" href="#docs-certifications"><h3>Certifications</h3><p>PCEP, PCAP and other options, in a sensible order.</p></a>
 </div>
-
 <h2>Daily routine (about 2 hours)</h2>
-<div class="table-wrap">
+<div class="tw"><table><tr><th>Time</th><th>Activity</th></tr>
+<tr><td>60 min</td><td>Python: read the lesson, type the examples, do the exercises</td></tr>
+<tr><td>30 min</td><td>Project work or coding practice</td></tr>
+<tr><td>20 min</td><td>English: shadowing and speaking aloud</td></tr>
+<tr><td>10 min</td><td>Write down what you learned and what is next</td></tr></table></div>
+<h2>Get set up in 5 steps</h2>
+<ol>
+<li>Install Python 3.10 or newer from python.org (tick <b>Add Python to PATH</b> on Windows).</li>
+<li>Install a code editor such as VS Code.</li>
+<li>Create a folder called <code>python-course</code> and open it in the editor.</li>
+<li>Open a terminal in that folder and run <code>python -m venv .venv</code>.</li>
+<li>Type each example yourself, save it as a <code>.py</code> file, and run it with <code>python filename.py</code>.</li>
+</ol>
+<h2>Rules for fast progress</h2>
+<ol>
+<li><b>Type, never copy-paste.</b> Typing builds muscle memory.</li>
+<li><b>Practice daily.</b> Consistency beats long weekend sessions.</li>
+<li><b>Build before you feel ready.</b> Start projects at module 6.</li>
+<li><b>Speak every day,</b> even 5 minutes, even to yourself.</li>
+<li><b>Explain what you learn</b> out loud in English: it is revision and speaking practice together.</li>
+</ol>
+</section>
+<section class="page" id="p-docs-roadmap" data-title="16-Week Roadmap: Zero to Job-Ready" hidden><h1>16-Week Roadmap: Zero to Job-Ready</h1>
+<p>Assumes about 2 hours per day, 6 days per week. Take 1 rest day.</p>
 <table>
-  <tr><th>Time</th><th>Activity</th></tr>
-  <tr><td>60 min</td><td>Python: read the lesson, type the examples, do the exercises</td></tr>
-  <tr><td>30 min</td><td>Project work or coding practice</td></tr>
-  <tr><td>20 min</td><td>English: shadowing and speaking aloud</td></tr>
-  <tr><td>10 min</td><td>Log progress and make a git commit</td></tr>
+<thead>
+<tr>
+<th>Week</th>
+<th>Python focus</th>
+<th>Project / output</th>
+<th>English focus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Module 01: variables, types, input/output</td>
+<td>Tip calculator</td>
+<td>Pronounce the alphabet and tech terms; 2-minute self-introduction</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Module 02: if/else, loops</td>
+<td>Number guessing game</td>
+<td>Shadowing 10 min daily; learn 10 phrases/day</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Module 03: functions</td>
+<td>Password generator</td>
+<td>Describe your day in the past tense</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Module 04: list, dict, set, tuple, comprehensions</td>
+<td>Contact book</td>
+<td>First recording: "Tell me about yourself"</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Module 05: OOP</td>
+<td>Bank account classes</td>
+<td>Explain a concept (class vs object) in 2 minutes</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Module 06: files, JSON, exceptions</td>
+<td><strong>Project 1: Expense Tracker</strong></td>
+<td>Present your project in 3 minutes</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Module 07: venv, pip, Git, GitHub</td>
+<td>Push all work to GitHub</td>
+<td>Write a README in English; read it aloud</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Module 08: automation (os, pathlib, regex)</td>
+<td><strong>Project 2/3: Log Analyzer, File Organizer</strong></td>
+<td>Stand-up update scripts</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Module 09: pytest, debugging</td>
+<td>Add tests to projects</td>
+<td>Explain a bug you fixed</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Module 10: requests, APIs, JSON</td>
+<td><strong>Project 4: API client</strong></td>
+<td>Mock demo with a friend</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Module 11: pandas, matplotlib</td>
+<td><strong>Project 5: Sales analysis</strong></td>
+<td>Present charts: describe trends</td>
+</tr>
+<tr>
+<td>12</td>
+<td>Module 12: FastAPI, SQL (SQLite)</td>
+<td><strong>Project 6: To-do REST API</strong></td>
+<td>Technical walkthrough (5 min)</td>
+</tr>
+<tr>
+<td>13</td>
+<td>Data structures and algorithms (easy)</td>
+<td>30 easy problems</td>
+<td>Think aloud while solving</td>
+</tr>
+<tr>
+<td>14</td>
+<td>Resume, LinkedIn, GitHub polish</td>
+<td>Portfolio ready</td>
+<td>HR interview round practice</td>
+</tr>
+<tr>
+<td>15</td>
+<td>Mock interviews (technical + HR)</td>
+<td>Record 3 mock interviews</td>
+<td>Review recordings; fix filler words</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Apply: 5-10 applications/day, referrals</td>
+<td>Track in a spreadsheet</td>
+<td>Follow-up emails, salary conversation</td>
+</tr>
+</tbody>
 </table>
-</div>
+<h2>Checkpoints</h2>
+<ul>
+<li><strong>End of week 6:</strong> can build a small CLI app alone.</li>
+<li><strong>End of week 12:</strong> can build and test a REST API.</li>
+<li><strong>End of week 16:</strong> 6 projects on GitHub, 3 mock interviews done, applications sent.</li>
+</ul><div class="done"><button class="btn alt" data-done="docs-roadmap">Mark as complete</button></div></section>
+<section class="page" id="p-docs-certifications" data-title="Python and IT Certifications: Options" hidden><h1>Python and IT Certifications: Options</h1>
+<p>Certifications help freshers who lack experience, but <strong>projects + GitHub matter more</strong> to most recruiters.
+Prices, exam codes and formats change often, so always verify on the official site before paying.</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Level</th>
+<th>Good for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>PCEP</strong> (Python Institute)</td>
+<td>Entry</td>
+<td>Proving Python basics</td>
+</tr>
+<tr>
+<td><strong>PCAP</strong> (Python Institute)</td>
+<td>Associate</td>
+<td>Proving OOP and intermediate Python</td>
+</tr>
+<tr>
+<td><strong>PCPP</strong> (Python Institute)</td>
+<td>Professional</td>
+<td>Advanced Python (after real experience)</td>
+</tr>
+<tr>
+<td><strong>Google IT Automation with Python</strong> (Coursera)</td>
+<td>Beginner</td>
+<td>Guided course with a certificate</td>
+</tr>
+<tr>
+<td><strong>freeCodeCamp</strong> Scientific Computing with Python</td>
+<td>Beginner</td>
+<td>Free certificate with projects</td>
+</tr>
+<tr>
+<td><strong>HackerRank</strong> Python (Basic/Intermediate) skill badges</td>
+<td>Beginner</td>
+<td>Free, quick, easy to share on LinkedIn</td>
+</tr>
+<tr>
+<td><strong>Microsoft Azure Fundamentals (AZ-900)</strong></td>
+<td>Entry</td>
+<td>Cloud basics that pair well with Python</td>
+</tr>
+<tr>
+<td><strong>AWS Certified Cloud Practitioner</strong></td>
+<td>Entry</td>
+<td>Cloud basics that pair well with Python</td>
+</tr>
+</tbody>
+</table>
+<h2>Suggested order</h2>
+<ol>
+<li>Finish modules 01-06, then take <strong>PCEP</strong> (cheap, confidence booster).</li>
+<li>Finish modules 07-12 and projects, then consider <strong>PCAP</strong> or a cloud fundamentals exam.</li>
+<li>Do HackerRank badges alongside, because they are free.</li>
+</ol>
+<h2>English certifications (optional)</h2>
+<p>IELTS, PTE, TOEFL or Cambridge exams matter for study or work abroad. For Indian IT jobs, a clear
+spoken-English demo in the interview usually matters more than a score.</p><div class="done"><button class="btn alt" data-done="docs-certifications">Mark as complete</button></div></section>
+<section class="page" id="p-modules-01_basics" data-title="Module 01: Basics" hidden><h1>Module 01: Basics</h1>
+<p><strong>Goal:</strong> write and run simple programs.</p>
+<h2>Concepts</h2>
+<ul>
+<li>Running Python: <code>python file.py</code></li>
+<li>Variables and types: <code>int</code>, <code>float</code>, <code>str</code>, <code>bool</code></li>
+<li><code>print()</code>, <code>input()</code>, f-strings</li>
+<li>Operators: <code>+ - * / // % **</code>, comparison, <code>and or not</code></li>
+<li>Type conversion: <code>int("5")</code>, <code>str(5)</code></li>
+</ul>
+<h2>Practice (see <code>solutions.py</code> only after trying)</h2>
+<ol>
+<li>Convert Celsius to Fahrenheit: <code>F = C * 9/5 + 32</code>.</li>
+<li>Given a bill and tip percentage, return the total.</li>
+<li>Swap two variables without a third variable.</li>
+<li>Write <code>is_even(n)</code>.</li>
+</ol>
+<h2>Speak it</h2>
+<p>Explain out loud: <em>"A variable is a name that points to a value."</em></p><h2>Example code</h2><div class="fname">examples.py</div><pre><code>name = &quot;Asha&quot;
+age = 22
+height = 1.62
+is_student = True
 
-<h2 id="start">Quick start</h2>
-<pre><code>git clone https://github.com/Neuro-eng/python-zero-to-hero.git
-cd python-zero-to-hero
-python -m venv .venv
-source .venv/bin/activate        # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
-python modules/01_basics/examples.py
-pytest -q</code></pre>
+print(f&quot;{name} is {age} years old and {height} m tall.&quot;)
+print(type(name), type(age), type(height), type(is_student))
 
-<footer>MIT licensed. Built for learners targeting IT hub jobs and remote roles.</footer>
+print(7 / 2, 7 // 2, 7 % 2, 2 ** 5)
+
+user = input(&quot;Your favourite language? &quot;)
+print(f&quot;{user} is great, but Python is awesome!&quot;)
+</code></pre><h2>Solutions</h2><p>Try the practice questions first, then compare.</p><details class="sol"><summary>Show solution</summary><div class="fname">solutions.py</div><pre><code>def celsius_to_fahrenheit(c):
+    return c * 9 / 5 + 32
+
+
+def total_with_tip(bill, tip_percent):
+    return round(bill * (1 + tip_percent / 100), 2)
+
+
+def swap(a, b):
+    a, b = b, a
+    return a, b
+
+
+def is_even(n):
+    return n % 2 == 0
+</code></pre></details><div class="done"><button class="btn alt" data-done="modules-01_basics">Mark as complete</button></div></section>
+<section class="page" id="p-modules-02_control_flow" data-title="Module 02: Control Flow" hidden><h1>Module 02: Control Flow</h1>
+<h2>Concepts</h2>
+<ul>
+<li><code>if / elif / else</code></li>
+<li><code>for</code> loops with <code>range()</code>, <code>while</code> loops</li>
+<li><code>break</code>, <code>continue</code></li>
+<li>Truthy and falsy values</li>
+</ul>
+<h2>Practice</h2>
+<ol>
+<li>FizzBuzz for 1..n (return a list of strings).</li>
+<li>Check whether a number is prime.</li>
+<li>Sum of digits of an integer.</li>
+<li>Number guessing game (see examples).</li>
+</ol>
+<h2>Speak it</h2>
+<p>Describe the FizzBuzz logic in English in 30 seconds. Use <em>"first, then, finally"</em>.</p><h2>Example code</h2><div class="fname">examples.py</div><pre><code>import random
+
+secret = random.randint(1, 20)
+for attempt in range(1, 6):
+    guess = int(input(f&quot;Attempt {attempt}/5 - guess 1..20: &quot;))
+    if guess == secret:
+        print(&quot;Correct!&quot;)
+        break
+    elif guess &lt; secret:
+        print(&quot;Too low&quot;)
+    else:
+        print(&quot;Too high&quot;)
+else:
+    print(f&quot;Out of attempts. The number was {secret}&quot;)
+</code></pre><h2>Solutions</h2><p>Try the practice questions first, then compare.</p><details class="sol"><summary>Show solution</summary><div class="fname">solutions.py</div><pre><code>def fizzbuzz(n):
+    out = []
+    for i in range(1, n + 1):
+        if i % 15 == 0:
+            out.append(&quot;FizzBuzz&quot;)
+        elif i % 3 == 0:
+            out.append(&quot;Fizz&quot;)
+        elif i % 5 == 0:
+            out.append(&quot;Buzz&quot;)
+        else:
+            out.append(str(i))
+    return out
+
+
+def is_prime(n):
+    if n &lt; 2:
+        return False
+    i = 2
+    while i * i &lt;= n:
+        if n % i == 0:
+            return False
+        i += 1
+    return True
+
+
+def digit_sum(n):
+    return sum(int(d) for d in str(abs(n)))
+</code></pre></details><div class="done"><button class="btn alt" data-done="modules-02_control_flow">Mark as complete</button></div></section>
+<section class="page" id="p-modules-03_functions" data-title="Module 03: Functions" hidden><h1>Module 03: Functions</h1>
+<h2>Concepts</h2>
+<ul>
+<li><code>def</code>, parameters, return values</li>
+<li>Default and keyword arguments, <code>*args</code>, <code>**kwargs</code></li>
+<li>Scope (local vs global)</li>
+<li>Lambda, <code>map</code>, <code>filter</code>, <code>sorted(key=...)</code></li>
+<li>Docstrings and type hints</li>
+</ul>
+<h2>Practice</h2>
+<ol>
+<li><code>factorial(n)</code> (iterative and recursive).</li>
+<li><code>fibonacci(n)</code> returns the first n numbers.</li>
+<li><code>is_palindrome(text)</code> ignoring case and spaces.</li>
+<li><code>generate_password(length)</code> with letters, digits and symbols.</li>
+</ol>
+<h2>Speak it</h2>
+<p>Explain "what is a function and why do we use it?" in 1 minute.</p><h2>Example code</h2><div class="fname">examples.py</div><pre><code>def greet(name, greeting=&quot;Hello&quot;):
+    &quot;&quot;&quot;Return a greeting message.&quot;&quot;&quot;
+    return f&quot;{greeting}, {name}!&quot;
+
+
+def total(*numbers, **options):
+    result = sum(numbers)
+    if options.get(&quot;round&quot;):
+        result = round(result)
+    return result
+
+
+print(greet(&quot;Ravi&quot;))
+print(greet(&quot;Ravi&quot;, greeting=&quot;Namaste&quot;))
+print(total(1.4, 2.4, round=True))
+
+people = [(&quot;Asha&quot;, 25), (&quot;Ravi&quot;, 21), (&quot;Meena&quot;, 30)]
+print(sorted(people, key=lambda p: p[1]))
+</code></pre><h2>Solutions</h2><p>Try the practice questions first, then compare.</p><details class="sol"><summary>Show solution</summary><div class="fname">solutions.py</div><pre><code>import random
+import string
+
+
+def factorial(n):
+    if n &lt; 0:
+        raise ValueError(&quot;n must be &gt;= 0&quot;)
+    return 1 if n in (0, 1) else n * factorial(n - 1)
+
+
+def fibonacci(n):
+    seq = []
+    a, b = 0, 1
+    for _ in range(n):
+        seq.append(a)
+        a, b = b, a + b
+    return seq
+
+
+def is_palindrome(text):
+    cleaned = &quot;&quot;.join(ch.lower() for ch in text if ch.isalnum())
+    return cleaned == cleaned[::-1]
+
+
+def generate_password(length=12):
+    if length &lt; 8:
+        raise ValueError(&quot;length must be at least 8&quot;)
+    chars = string.ascii_letters + string.digits + &quot;!@#$%^&amp;*&quot;
+    return &quot;&quot;.join(random.choice(chars) for _ in range(length))
+</code></pre></details><div class="done"><button class="btn alt" data-done="modules-03_functions">Mark as complete</button></div></section>
+<section class="page" id="p-modules-04_data_structures" data-title="Module 04: Data Structures" hidden><h1>Module 04: Data Structures</h1>
+<h2>Concepts</h2>
+<ul>
+<li><code>list</code>, <code>tuple</code>, <code>set</code>, <code>dict</code></li>
+<li>Slicing, methods, sorting</li>
+<li>Comprehensions: <code>[x*x for x in nums if x % 2 == 0]</code></li>
+<li><code>collections</code>: <code>Counter</code>, <code>defaultdict</code>, <code>deque</code></li>
+</ul>
+<h2>Practice</h2>
+<ol>
+<li><code>word_count(text)</code> returns a dict of word frequencies.</li>
+<li><code>remove_duplicates(items)</code> keeps order.</li>
+<li><code>group_by_length(words)</code> returns a dict of length to words.</li>
+<li><code>two_sum(nums, target)</code> returns indices (classic interview question).</li>
+</ol>
+<h2>Speak it</h2>
+<p>Compare list vs set vs dict: when do you use each? Answer in 2 minutes.</p><h2>Example code</h2><div class="fname">examples.py</div><pre><code>from collections import Counter, defaultdict
+
+nums = [1, 2, 3, 4, 5, 6]
+print([n * n for n in nums if n % 2 == 0])
+
+students = {&quot;Asha&quot;: 88, &quot;Ravi&quot;: 75}
+students[&quot;Meena&quot;] = 92
+for name, score in students.items():
+    print(name, score)
+
+print(Counter(&quot;mississippi&quot;).most_common(2))
+
+groups = defaultdict(list)
+for w in [&quot;cat&quot;, &quot;dog&quot;, &quot;bird&quot;, &quot;fish&quot;]:
+    groups[len(w)].append(w)
+print(dict(groups))
+</code></pre><h2>Solutions</h2><p>Try the practice questions first, then compare.</p><details class="sol"><summary>Show solution</summary><div class="fname">solutions.py</div><pre><code>from collections import Counter, defaultdict
+
+
+def word_count(text):
+    words = [w.strip(&quot;.,!?;:&quot;).lower() for w in text.split()]
+    return dict(Counter(w for w in words if w))
+
+
+def remove_duplicates(items):
+    seen = set()
+    result = []
+    for item in items:
+        if item not in seen:
+            seen.add(item)
+            result.append(item)
+    return result
+
+
+def group_by_length(words):
+    groups = defaultdict(list)
+    for w in words:
+        groups[len(w)].append(w)
+    return dict(groups)
+
+
+def two_sum(nums, target):
+    seen = {}
+    for i, n in enumerate(nums):
+        if target - n in seen:
+            return [seen[target - n], i]
+        seen[n] = i
+    return []
+</code></pre></details><div class="done"><button class="btn alt" data-done="modules-04_data_structures">Mark as complete</button></div></section>
+<section class="page" id="p-modules-05_oop" data-title="Module 05: Object-Oriented Programming" hidden><h1>Module 05: Object-Oriented Programming</h1>
+<h2>Concepts</h2>
+<ul>
+<li>Classes, objects, <code>__init__</code>, <code>self</code></li>
+<li>Attributes and methods, <code>__str__</code>, <code>__repr__</code></li>
+<li>Inheritance, <code>super()</code>, polymorphism</li>
+<li>Encapsulation (<code>_protected</code>, properties)</li>
+<li>Dataclasses</li>
+</ul>
+<h2>Practice</h2>
+<ol>
+<li><code>BankAccount</code> with deposit, withdraw (no overdraft), balance.</li>
+<li><code>Shape</code> base class with <code>Circle</code> and <code>Rectangle</code> area.</li>
+<li>Convert a class to a <code>@dataclass</code>.</li>
+</ol>
+<h2>Speak it</h2>
+<p>Explain "class vs object" with a real-life example (car blueprint vs a car).</p><h2>Example code</h2><div class="fname">examples.py</div><pre><code>from dataclasses import dataclass
+
+
+class Animal:
+    def __init__(self, name):
+        self.name = name
+
+    def speak(self):
+        return &quot;...&quot;
+
+
+class Dog(Animal):
+    def speak(self):
+        return f&quot;{self.name} says Woof&quot;
+
+
+@dataclass
+class Point:
+    x: float
+    y: float
+
+
+for pet in [Animal(&quot;Generic&quot;), Dog(&quot;Bruno&quot;)]:
+    print(pet.speak())
+print(Point(1, 2))
+</code></pre><h2>Solutions</h2><p>Try the practice questions first, then compare.</p><details class="sol"><summary>Show solution</summary><div class="fname">solutions.py</div><pre><code>import math
+
+
+class BankAccount:
+    def __init__(self, owner, balance=0):
+        self.owner = owner
+        self._balance = balance
+
+    @property
+    def balance(self):
+        return self._balance
+
+    def deposit(self, amount):
+        if amount &lt;= 0:
+            raise ValueError(&quot;Deposit must be positive&quot;)
+        self._balance += amount
+
+    def withdraw(self, amount):
+        if amount &gt; self._balance:
+            raise ValueError(&quot;Insufficient funds&quot;)
+        self._balance -= amount
+
+
+class Shape:
+    def area(self):
+        raise NotImplementedError
+
+
+class Circle(Shape):
+    def __init__(self, r):
+        self.r = r
+
+    def area(self):
+        return math.pi * self.r ** 2
+
+
+class Rectangle(Shape):
+    def __init__(self, w, h):
+        self.w, self.h = w, h
+
+    def area(self):
+        return self.w * self.h
+</code></pre></details><div class="done"><button class="btn alt" data-done="modules-05_oop">Mark as complete</button></div></section>
+<section class="page" id="p-modules-06_files_and_errors" data-title="Module 06: Files and Error Handling" hidden><h1>Module 06: Files and Error Handling</h1>
+<h2>Concepts</h2>
+<ul>
+<li><code>open()</code>, <code>with</code> statement, modes <code>r w a</code></li>
+<li><code>json</code> and <code>csv</code> modules</li>
+<li><code>try / except / else / finally</code>, raising exceptions, custom exceptions</li>
+<li><code>pathlib.Path</code></li>
+</ul>
+<h2>Practice</h2>
+<ol>
+<li>Save and load a list of dicts as JSON.</li>
+<li>Read a CSV and compute column totals.</li>
+<li><code>safe_int(value, default=0)</code> that never crashes.</li>
+</ol>
+<h2>Project time</h2>
+<p>Start <strong>Project 1: Expense Tracker</strong> (see Portfolio Projects).</p><h2>Example code</h2><div class="fname">examples.py</div><pre><code>import json
+from pathlib import Path
+
+data = [{&quot;item&quot;: &quot;Tea&quot;, &quot;amount&quot;: 20}, {&quot;item&quot;: &quot;Book&quot;, &quot;amount&quot;: 350}]
+path = Path(&quot;demo.json&quot;)
+path.write_text(json.dumps(data, indent=2), encoding=&quot;utf-8&quot;)
+print(json.loads(path.read_text(encoding=&quot;utf-8&quot;)))
+
+try:
+    int(&quot;abc&quot;)
+except ValueError as err:
+    print(&quot;Handled:&quot;, err)
+finally:
+    path.unlink(missing_ok=True)
+</code></pre><h2>Solutions</h2><p>Try the practice questions first, then compare.</p><details class="sol"><summary>Show solution</summary><div class="fname">solutions.py</div><pre><code>import csv
+import json
+from pathlib import Path
+
+
+def save_json(path, data):
+    Path(path).write_text(json.dumps(data, indent=2), encoding=&quot;utf-8&quot;)
+
+
+def load_json(path, default=None):
+    try:
+        return json.loads(Path(path).read_text(encoding=&quot;utf-8&quot;))
+    except (FileNotFoundError, json.JSONDecodeError):
+        return default
+
+
+def column_total(csv_path, column):
+    total = 0.0
+    with open(csv_path, newline=&quot;&quot;, encoding=&quot;utf-8&quot;) as f:
+        for row in csv.DictReader(f):
+            total += float(row[column])
+    return total
+
+
+def safe_int(value, default=0):
+    try:
+        return int(value)
+    except (ValueError, TypeError):
+        return default
+</code></pre></details><div class="done"><button class="btn alt" data-done="modules-06_files_and_errors">Mark as complete</button></div></section>
+<section class="page" id="p-modules-07_modules_venv_git" data-title="Module 07: Modules, Virtual Environments, Git and GitHub" hidden><h1>Module 07: Modules, Virtual Environments, Git and GitHub</h1>
+<h2>Python</h2>
+<ul>
+<li><code>import</code>, <code>from x import y</code>, writing your own module</li>
+<li><code>if __name__ == "__main__":</code></li>
+<li>Virtual environments: <code>python -m venv .venv</code></li>
+<li><code>pip install</code>, <code>pip freeze &gt; requirements.txt</code></li>
+</ul>
+<h2>Git essentials</h2>
+<pre><code class="language-bash">git init
+git add .
+git commit -m &quot;Add expense tracker&quot;
+git branch -M main
+git remote add origin https://github.com/&lt;you&gt;/&lt;repo&gt;.git
+git push -u origin main
+</code></pre>
+<p>Everyday commands: <code>git status</code>, <code>git log --oneline</code>, <code>git switch -c feature/x</code>, <code>git pull</code>, <code>git merge</code>.</p>
+<h2>Practice</h2>
+<ol>
+<li>Create a <code>utils.py</code> and import it into another file.</li>
+<li>Put every module solution in your own GitHub repository with a clear README.</li>
+<li>Make a branch, change something, open a Pull Request on your own repo.</li>
+</ol>
+<h2>Good commit messages</h2>
+<p>Short, imperative, specific: <code>Fix crash when amount is empty</code>, not <code>changes</code>.</p>
+<h2>Speak it</h2>
+<p>Explain "What is Git and why do teams use it?" in 1 minute.</p><h2>Example code</h2><div class="fname">examples.py</div><pre><code>&quot;&quot;&quot;Run: python examples.py  (shows module pattern)&quot;&quot;&quot;
+
+
+def add(a, b):
+    return a + b
+
+
+def main():
+    print(&quot;2 + 3 =&quot;, add(2, 3))
+
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre><div class="done"><button class="btn alt" data-done="modules-07_modules_venv_git">Mark as complete</button></div></section>
+<section class="page" id="p-modules-08_automation" data-title="Module 08: Automation with the Standard Library" hidden><h1>Module 08: Automation with the Standard Library</h1>
+<h2>Concepts</h2>
+<ul>
+<li><code>pathlib</code>, <code>os</code>, <code>shutil</code> (files and folders)</li>
+<li><code>re</code> (regular expressions)</li>
+<li><code>datetime</code>, <code>argparse</code> (command-line tools)</li>
+<li><code>subprocess</code>, <code>logging</code></li>
+<li>Scheduling: cron (Linux/macOS), Task Scheduler (Windows)</li>
+</ul>
+<h2>Practice</h2>
+<ol>
+<li><code>extract_emails(text)</code> using regex.</li>
+<li><code>parse_log_line(line)</code> returns a dict.</li>
+<li><code>organize_by_extension(folder)</code> moves files into subfolders (see Project 3).</li>
+</ol>
+<h2>Why employers care</h2>
+<p>Automating boring work (reports, file cleanup, log checks) is a top real-world use of Python.</p><h2>Example code</h2><div class="fname">examples.py</div><pre><code>import argparse
+import re
+from pathlib import Path
+
+parser = argparse.ArgumentParser(description=&quot;Count .py files in a folder&quot;)
+parser.add_argument(&quot;folder&quot;, nargs=&quot;?&quot;, default=&quot;.&quot;)
+args = parser.parse_args()
+
+files = list(Path(args.folder).rglob(&quot;*.py&quot;))
+print(f&quot;Found {len(files)} Python files&quot;)
+print(re.findall(r&quot;[\w.]+@[\w.]+\.\w+&quot;, &quot;Mail asha@example.com or ravi@test.org&quot;))
+</code></pre><h2>Solutions</h2><p>Try the practice questions first, then compare.</p><details class="sol"><summary>Show solution</summary><div class="fname">solutions.py</div><pre><code>import re
+
+EMAIL_RE = re.compile(r&quot;[\w.+-]+@[\w-]+\.[\w.-]+&quot;)
+LOG_RE = re.compile(r&quot;^(?P&lt;date&gt;\d{4}-\d{2}-\d{2}) (?P&lt;time&gt;[\d:]+) (?P&lt;level&gt;[A-Z]+) (?P&lt;msg&gt;.*)$&quot;)
+
+
+def extract_emails(text):
+    return EMAIL_RE.findall(text)
+
+
+def parse_log_line(line):
+    m = LOG_RE.match(line.strip())
+    return m.groupdict() if m else None
+</code></pre></details><div class="done"><button class="btn alt" data-done="modules-08_automation">Mark as complete</button></div></section>
+<section class="page" id="p-modules-09_testing_debugging" data-title="Module 09: Testing and Debugging" hidden><h1>Module 09: Testing and Debugging</h1>
+<h2>Concepts</h2>
+<ul>
+<li><code>pytest</code>: test functions, <code>assert</code>, <code>pytest.raises</code>, <code>parametrize</code>, fixtures</li>
+<li>Debugging: read the traceback bottom-up, <code>print</code>, <code>breakpoint()</code> (pdb), IDE debugger</li>
+<li>Common errors: <code>NameError</code>, <code>TypeError</code>, <code>KeyError</code>, <code>IndexError</code></li>
+<li>Edge cases: empty input, zero, negative numbers, wrong type</li>
+</ul>
+<h2>Practice</h2>
+<ol>
+<li>Install pytest (<code>pip install pytest</code>), save tests as <code>test_*.py</code>, and run <code>pytest -q</code>.</li>
+<li>Write 5 tests for your own function, including 2 edge cases.</li>
+<li>Deliberately break a function and use <code>breakpoint()</code> to find the bug.</li>
+</ol>
+<h2>Speak it</h2>
+<p>Describe a bug you fixed using: <strong>Problem, Cause, Fix, Lesson</strong>.</p><h2>Example code</h2><div class="fname">examples.py</div><pre><code>def divide(a, b):
+    if b == 0:
+        raise ZeroDivisionError(&quot;b must not be zero&quot;)
+    return a / b
+
+
+# Try: uncomment breakpoint() to step through with pdb
+# breakpoint()
+print(divide(10, 2))
+</code></pre><div class="done"><button class="btn alt" data-done="modules-09_testing_debugging">Mark as complete</button></div></section>
+<section class="page" id="p-modules-10_web_and_apis" data-title="Module 10: Web and APIs" hidden><h1>Module 10: Web and APIs</h1>
+<h2>Concepts</h2>
+<ul>
+<li>HTTP: methods (GET, POST, PUT, DELETE), status codes (200, 201, 400, 404, 500)</li>
+<li>JSON</li>
+<li><code>requests</code> library: <code>get</code>, <code>post</code>, headers, params, timeouts</li>
+<li>Error handling for network failures</li>
+<li>Rate limits and API keys (keep them in environment variables, never in Git)</li>
+</ul>
+<h2>Practice</h2>
+<ol>
+<li>Call a public API and print a clean summary.</li>
+<li>Handle timeouts and non-200 responses.</li>
+<li>Build <strong>Project 4: API client</strong>.</li>
+</ol>
+<h2>Interview tip</h2>
+<p>Be ready to explain: "What happens when you type a URL in the browser?"</p><h2>Example code</h2><div class="fname">examples.py</div><pre><code>import requests
+
+URL = &quot;https://jsonplaceholder.typicode.com/todos/1&quot;
+
+try:
+    resp = requests.get(URL, timeout=10)
+    resp.raise_for_status()
+    print(resp.json())
+except requests.RequestException as err:
+    print(&quot;Request failed:&quot;, err)
+</code></pre><div class="done"><button class="btn alt" data-done="modules-10_web_and_apis">Mark as complete</button></div></section>
+<section class="page" id="p-modules-11_data_analysis" data-title="Module 11: Data Analysis with pandas" hidden><h1>Module 11: Data Analysis with pandas</h1>
+<h2>Concepts</h2>
+<ul>
+<li><code>DataFrame</code>, <code>read_csv</code>, <code>head</code>, <code>info</code>, <code>describe</code></li>
+<li>Selecting, filtering, sorting</li>
+<li><code>groupby</code>, aggregation, <code>merge</code></li>
+<li>Missing data: <code>isna</code>, <code>fillna</code>, <code>dropna</code></li>
+<li>Charts with matplotlib</li>
+</ul>
+<h2>Practice</h2>
+<ol>
+<li>Load <code>sales.csv</code> (create it with <code>make_data.py</code> from Project 5).</li>
+<li>Find revenue per region and top 3 products.</li>
+<li>Plot monthly revenue and describe the trend in English.</li>
+</ol>
+<h2>Speak it</h2>
+<p>Explain a chart in 60 seconds: <em>what it shows, the key trend, one insight, one recommendation.</em></p><h2>Example code</h2><div class="fname">examples.py</div><pre><code>import pandas as pd
+
+df = pd.DataFrame(
+    {
+        &quot;region&quot;: [&quot;North&quot;, &quot;South&quot;, &quot;North&quot;, &quot;East&quot;, &quot;South&quot;],
+        &quot;product&quot;: [&quot;A&quot;, &quot;B&quot;, &quot;A&quot;, &quot;C&quot;, &quot;A&quot;],
+        &quot;revenue&quot;: [100, 150, 120, 90, 200],
+    }
+)
+print(df.groupby(&quot;region&quot;)[&quot;revenue&quot;].sum().sort_values(ascending=False))
+print(df[df[&quot;revenue&quot;] &gt; 100])
+</code></pre><div class="done"><button class="btn alt" data-done="modules-11_data_analysis">Mark as complete</button></div></section>
+<section class="page" id="p-modules-12_fastapi_and_sql" data-title="Module 12: FastAPI and SQL" hidden><h1>Module 12: FastAPI and SQL</h1>
+<h2>SQL (SQLite)</h2>
+<pre><code class="language-sql">CREATE TABLE todos (id INTEGER PRIMARY KEY, title TEXT NOT NULL, done INTEGER DEFAULT 0);
+INSERT INTO todos (title) VALUES ('Learn Python');
+SELECT * FROM todos WHERE done = 0 ORDER BY id DESC;
+UPDATE todos SET done = 1 WHERE id = 1;
+DELETE FROM todos WHERE id = 1;
+-- JOIN and GROUP BY
+SELECT c.name, COUNT(o.id) FROM customers c JOIN orders o ON o.customer_id = c.id GROUP BY c.name;
+</code></pre>
+<h2>FastAPI</h2>
+<ul>
+<li>Routes, path/query parameters, request bodies with Pydantic</li>
+<li>Automatic docs at <code>/docs</code></li>
+<li>Run: <code>uvicorn app:app --reload</code></li>
+</ul>
+<h2>Practice</h2>
+<p>Build <strong>Project 6: To-do REST API</strong> (see Portfolio Projects).</p>
+<h2>Interview tip</h2>
+<p>Know the difference between PUT and PATCH, and between SQL <code>WHERE</code> and <code>HAVING</code>.</p><h2>Example code</h2><div class="fname">examples.py</div><pre><code>import sqlite3
+
+conn = sqlite3.connect(&quot;:memory:&quot;)
+conn.execute(&quot;CREATE TABLE todos (id INTEGER PRIMARY KEY, title TEXT, done INTEGER DEFAULT 0)&quot;)
+conn.executemany(&quot;INSERT INTO todos (title) VALUES (?)&quot;, [(&quot;Learn SQL&quot;,), (&quot;Build API&quot;,)])
+for row in conn.execute(&quot;SELECT id, title, done FROM todos&quot;):
+    print(row)
+conn.close()
+</code></pre><div class="done"><button class="btn alt" data-done="modules-12_fastapi_and_sql">Mark as complete</button></div></section>
+<section class="page" id="p-projects-01_expense_tracker" data-title="Project 1: Expense Tracker (CLI)" hidden><h1>Project 1: Expense Tracker (CLI)</h1>
+<p><strong>Skills:</strong> functions, dict/list, JSON, argparse, error handling.</p>
+<pre><code class="language-bash">python tracker.py add 250 food &quot;Lunch&quot;
+python tracker.py list
+python tracker.py summary
+</code></pre>
+<p><strong>Stretch goals:</strong> monthly filter, CSV export, budget alerts, unit tests.</p>
+<p><strong>How to present it (60 sec):</strong> problem, how it works, one challenge you solved, what you'd improve.</p><h2>Code</h2><p>Create a folder for the project and save each file with the name shown.</p><div class="fname">tracker.py</div><pre><code>import argparse
+import json
+from collections import defaultdict
+from datetime import date
+from pathlib import Path
+
+DB = Path(__file__).with_name(&quot;expenses.json&quot;)
+
+
+def load(path=DB):
+    try:
+        return json.loads(Path(path).read_text(encoding=&quot;utf-8&quot;))
+    except (FileNotFoundError, json.JSONDecodeError):
+        return []
+
+
+def save(expenses, path=DB):
+    Path(path).write_text(json.dumps(expenses, indent=2), encoding=&quot;utf-8&quot;)
+
+
+def add_expense(expenses, amount, category, note=&quot;&quot;):
+    if amount &lt;= 0:
+        raise ValueError(&quot;Amount must be positive&quot;)
+    expenses.append(
+        {&quot;date&quot;: date.today().isoformat(), &quot;amount&quot;: amount, &quot;category&quot;: category, &quot;note&quot;: note}
+    )
+    return expenses
+
+
+def summarize(expenses):
+    totals = defaultdict(float)
+    for e in expenses:
+        totals[e[&quot;category&quot;]] += e[&quot;amount&quot;]
+    return dict(totals)
+
+
+def main():
+    p = argparse.ArgumentParser(description=&quot;Expense Tracker&quot;)
+    sub = p.add_subparsers(dest=&quot;cmd&quot;, required=True)
+    a = sub.add_parser(&quot;add&quot;)
+    a.add_argument(&quot;amount&quot;, type=float)
+    a.add_argument(&quot;category&quot;)
+    a.add_argument(&quot;note&quot;, nargs=&quot;?&quot;, default=&quot;&quot;)
+    sub.add_parser(&quot;list&quot;)
+    sub.add_parser(&quot;summary&quot;)
+    args = p.parse_args()
+
+    data = load()
+    if args.cmd == &quot;add&quot;:
+        try:
+            save(add_expense(data, args.amount, args.category, args.note))
+            print(&quot;Added.&quot;)
+        except ValueError as err:
+            print(&quot;Error:&quot;, err)
+    elif args.cmd == &quot;list&quot;:
+        for e in data:
+            print(f&#x27;{e[&quot;date&quot;]}  {e[&quot;amount&quot;]:&gt;8.2f}  {e[&quot;category&quot;]:&lt;10} {e[&quot;note&quot;]}&#x27;)
+    else:
+        for cat, total in sorted(summarize(data).items(), key=lambda x: -x[1]):
+            print(f&quot;{cat:&lt;12}{total:&gt;10.2f}&quot;)
+
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre><div class="done"><button class="btn alt" data-done="projects-01_expense_tracker">Mark as complete</button></div></section>
+<section class="page" id="p-projects-02_log_analyzer" data-title="Project 2: Log Analyzer" hidden><h1>Project 2: Log Analyzer</h1>
+<p><strong>Skills:</strong> regex, file reading, Counter, argparse.</p>
+<pre><code class="language-bash">python analyzer.py sample.log
+</code></pre>
+<p>Counts log levels and lists the most frequent ERROR messages. Useful for support/DevOps roles.</p>
+<p><strong>Stretch goals:</strong> filter by time window, output JSON, handle huge files line by line.</p><h2>Code</h2><p>Create a folder for the project and save each file with the name shown.</p><div class="fname">analyzer.py</div><pre><code>import argparse
+import re
+from collections import Counter
+
+LOG_RE = re.compile(r&quot;^(\S+) (\S+) ([A-Z]+) (.*)$&quot;)
+
+
+def analyze(lines):
+    levels, errors = Counter(), Counter()
+    for line in lines:
+        m = LOG_RE.match(line.strip())
+        if not m:
+            continue
+        level, msg = m.group(3), m.group(4)
+        levels[level] += 1
+        if level == &quot;ERROR&quot;:
+            errors[msg] += 1
+    return levels, errors
+
+
+def main():
+    p = argparse.ArgumentParser()
+    p.add_argument(&quot;logfile&quot;)
+    args = p.parse_args()
+    with open(args.logfile, encoding=&quot;utf-8&quot;) as f:
+        levels, errors = analyze(f)
+    print(&quot;Levels:&quot;, dict(levels))
+    print(&quot;Top errors:&quot;)
+    for msg, count in errors.most_common(5):
+        print(f&quot;  {count}x {msg}&quot;)
+
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre><div class="fname">sample.log</div><pre><code>2026-01-10 09:00:01 INFO Server started
+2026-01-10 09:05:12 ERROR Database connection failed
+2026-01-10 09:05:20 WARNING Retrying connection
+2026-01-10 09:06:00 ERROR Database connection failed
+2026-01-10 09:10:45 INFO Request served
+2026-01-10 09:12:00 ERROR Timeout while calling payment API
+</code></pre><div class="done"><button class="btn alt" data-done="projects-02_log_analyzer">Mark as complete</button></div></section>
+<section class="page" id="p-projects-03_file_organizer" data-title="Project 3: File Organizer" hidden><h1>Project 3: File Organizer</h1>
+<p><strong>Skills:</strong> pathlib, shutil, argparse, dry-run safety.</p>
+<pre><code class="language-bash">python organizer.py ~/Downloads --dry-run   # preview first!
+python organizer.py ~/Downloads
+</code></pre>
+<p>Moves files into <code>Images/</code>, <code>Documents/</code>, <code>Code/</code>, <code>Archives/</code>, <code>Other/</code>.</p><h2>Code</h2><p>Create a folder for the project and save each file with the name shown.</p><div class="fname">organizer.py</div><pre><code>import argparse
+import shutil
+from pathlib import Path
+
+CATEGORIES = {
+    &quot;Images&quot;: {&quot;.jpg&quot;, &quot;.jpeg&quot;, &quot;.png&quot;, &quot;.gif&quot;, &quot;.webp&quot;},
+    &quot;Documents&quot;: {&quot;.pdf&quot;, &quot;.docx&quot;, &quot;.txt&quot;, &quot;.xlsx&quot;, &quot;.pptx&quot;},
+    &quot;Code&quot;: {&quot;.py&quot;, &quot;.js&quot;, &quot;.html&quot;, &quot;.css&quot;, &quot;.json&quot;},
+    &quot;Archives&quot;: {&quot;.zip&quot;, &quot;.tar&quot;, &quot;.gz&quot;, &quot;.rar&quot;},
+}
+
+
+def category_for(path):
+    ext = Path(path).suffix.lower()
+    for name, exts in CATEGORIES.items():
+        if ext in exts:
+            return name
+    return &quot;Other&quot;
+
+
+def organize(folder, dry_run=False):
+    folder = Path(folder)
+    moves = []
+    for item in folder.iterdir():
+        if item.is_file():
+            dest_dir = folder / category_for(item)
+            moves.append((item, dest_dir / item.name))
+    for src, dest in moves:
+        print(f&quot;{src.name} -&gt; {dest.parent.name}/&quot;)
+        if not dry_run:
+            dest.parent.mkdir(exist_ok=True)
+            if dest.exists():
+                dest = dest.with_name(f&quot;{dest.stem}_copy{dest.suffix}&quot;)
+            shutil.move(str(src), str(dest))
+    return moves
+
+
+if __name__ == &quot;__main__&quot;:
+    p = argparse.ArgumentParser()
+    p.add_argument(&quot;folder&quot;)
+    p.add_argument(&quot;--dry-run&quot;, action=&quot;store_true&quot;)
+    a = p.parse_args()
+    organize(a.folder, a.dry_run)
+</code></pre><div class="done"><button class="btn alt" data-done="projects-03_file_organizer">Mark as complete</button></div></section>
+<section class="page" id="p-projects-04_api_client" data-title="Project 4: API Client" hidden><h1>Project 4: API Client</h1>
+<p><strong>Skills:</strong> <code>requests</code>, JSON, error handling, retries.</p>
+<pre><code class="language-bash">python client.py 5
+</code></pre>
+<p>Fetches todos from the free JSONPlaceholder API and prints a completion report.
+<strong>Stretch goals:</strong> swap to a weather or currency API, cache results, add retries with backoff.
+Keep API keys in environment variables, never in code.</p><h2>Code</h2><p>Create a folder for the project and save each file with the name shown.</p><div class="fname">client.py</div><pre><code>import sys
+import time
+
+import requests
+
+BASE = &quot;https://jsonplaceholder.typicode.com&quot;
+
+
+def get_json(path, retries=3):
+    for attempt in range(1, retries + 1):
+        try:
+            resp = requests.get(f&quot;{BASE}{path}&quot;, timeout=10)
+            resp.raise_for_status()
+            return resp.json()
+        except requests.RequestException as err:
+            print(f&quot;Attempt {attempt} failed: {err}&quot;)
+            time.sleep(attempt)
+    raise RuntimeError(&quot;API unavailable&quot;)
+
+
+def completion_report(todos):
+    done = sum(1 for t in todos if t[&quot;completed&quot;])
+    return {&quot;total&quot;: len(todos), &quot;done&quot;: done, &quot;pending&quot;: len(todos) - done}
+
+
+if __name__ == &quot;__main__&quot;:
+    limit = int(sys.argv[1]) if len(sys.argv) &gt; 1 else 10
+    todos = get_json(f&quot;/todos?_limit={limit}&quot;)
+    print(completion_report(todos))
+</code></pre><div class="done"><button class="btn alt" data-done="projects-04_api_client">Mark as complete</button></div></section>
+<section class="page" id="p-projects-05_sales_analysis" data-title="Project 5: Sales Analysis" hidden><h1>Project 5: Sales Analysis</h1>
+<p><strong>Skills:</strong> pandas, groupby, matplotlib, storytelling with data.</p>
+<pre><code class="language-bash">python make_data.py     # creates sales.csv
+python analyze.py       # prints insights and saves revenue_by_month.png
+</code></pre>
+<p><strong>Present it:</strong> "What does the data show? What is the biggest insight? What do you recommend?"</p><h2>Code</h2><p>Create a folder for the project and save each file with the name shown.</p><div class="fname">make_data.py</div><pre><code>import random
+
+import pandas as pd
+
+random.seed(42)
+rows = []
+for month in range(1, 13):
+    for _ in range(40):
+        rows.append(
+            {
+                &quot;month&quot;: month,
+                &quot;region&quot;: random.choice([&quot;North&quot;, &quot;South&quot;, &quot;East&quot;, &quot;West&quot;]),
+                &quot;product&quot;: random.choice([&quot;Laptop&quot;, &quot;Phone&quot;, &quot;Tablet&quot;, &quot;Watch&quot;]),
+                &quot;revenue&quot;: random.randint(50, 500) * (1 + month / 12),
+            }
+        )
+pd.DataFrame(rows).round(2).to_csv(&quot;sales.csv&quot;, index=False)
+print(&quot;sales.csv created&quot;)
+</code></pre><div class="fname">analyze.py</div><pre><code>import matplotlib
+
+matplotlib.use(&quot;Agg&quot;)
+import matplotlib.pyplot as plt
+import pandas as pd
+
+
+def insights(df):
+    return {
+        &quot;by_region&quot;: df.groupby(&quot;region&quot;)[&quot;revenue&quot;].sum().sort_values(ascending=False).round(2),
+        &quot;top_products&quot;: df.groupby(&quot;product&quot;)[&quot;revenue&quot;].sum().nlargest(3).round(2),
+        &quot;by_month&quot;: df.groupby(&quot;month&quot;)[&quot;revenue&quot;].sum().round(2),
+    }
+
+
+if __name__ == &quot;__main__&quot;:
+    df = pd.read_csv(&quot;sales.csv&quot;)
+    r = insights(df)
+    print(r[&quot;by_region&quot;], &quot;\n&quot;)
+    print(r[&quot;top_products&quot;])
+    r[&quot;by_month&quot;].plot(kind=&quot;line&quot;, marker=&quot;o&quot;, title=&quot;Revenue by month&quot;)
+    plt.xlabel(&quot;Month&quot;)
+    plt.ylabel(&quot;Revenue&quot;)
+    plt.savefig(&quot;revenue_by_month.png&quot;, dpi=120, bbox_inches=&quot;tight&quot;)
+    print(&quot;Saved revenue_by_month.png&quot;)
+</code></pre><div class="done"><button class="btn alt" data-done="projects-05_sales_analysis">Mark as complete</button></div></section>
+<section class="page" id="p-projects-06_todo_api" data-title="Project 6: To-do REST API (FastAPI + SQLite)" hidden><h1>Project 6: To-do REST API (FastAPI + SQLite)</h1>
+<pre><code class="language-bash">pip install fastapi uvicorn
+uvicorn app:app --reload
+</code></pre>
+<p>Open http://127.0.0.1:8000/docs to try the endpoints.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Path</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td>/todos</td>
+<td>List todos</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>/todos</td>
+<td>Create a todo</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td>/todos/{id}</td>
+<td>Update a todo</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>/todos/{id}</td>
+<td>Delete a todo</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Stretch goals:</strong> authentication (JWT), pagination, Docker, deploy to Render or Railway.</p><h2>Code</h2><p>Create a folder for the project and save each file with the name shown.</p><div class="fname">app.py</div><pre><code>import sqlite3
+from contextlib import closing
+
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
+
+DB_PATH = &quot;todos.db&quot;
+app = FastAPI(title=&quot;To-do API&quot;)
+
+
+class TodoIn(BaseModel):
+    title: str
+    done: bool = False
+
+
+def conn():
+    c = sqlite3.connect(DB_PATH)
+    c.row_factory = sqlite3.Row
+    c.execute(&quot;CREATE TABLE IF NOT EXISTS todos (id INTEGER PRIMARY KEY, title TEXT NOT NULL, done INTEGER DEFAULT 0)&quot;)
+    return c
+
+
+@app.get(&quot;/todos&quot;)
+def list_todos():
+    with closing(conn()) as c:
+        return [dict(r) for r in c.execute(&quot;SELECT * FROM todos ORDER BY id&quot;)]
+
+
+@app.post(&quot;/todos&quot;, status_code=201)
+def create_todo(todo: TodoIn):
+    with closing(conn()) as c:
+        cur = c.execute(&quot;INSERT INTO todos (title, done) VALUES (?, ?)&quot;, (todo.title, int(todo.done)))
+        c.commit()
+        return {&quot;id&quot;: cur.lastrowid, **todo.model_dump()}
+
+
+@app.put(&quot;/todos/{todo_id}&quot;)
+def update_todo(todo_id: int, todo: TodoIn):
+    with closing(conn()) as c:
+        cur = c.execute(&quot;UPDATE todos SET title=?, done=? WHERE id=?&quot;, (todo.title, int(todo.done), todo_id))
+        c.commit()
+        if cur.rowcount == 0:
+            raise HTTPException(404, &quot;Todo not found&quot;)
+        return {&quot;id&quot;: todo_id, **todo.model_dump()}
+
+
+@app.delete(&quot;/todos/{todo_id}&quot;, status_code=204)
+def delete_todo(todo_id: int):
+    with closing(conn()) as c:
+        cur = c.execute(&quot;DELETE FROM todos WHERE id=?&quot;, (todo_id,))
+        c.commit()
+        if cur.rowcount == 0:
+            raise HTTPException(404, &quot;Todo not found&quot;)
+</code></pre><div class="done"><button class="btn alt" data-done="projects-06_todo_api">Mark as complete</button></div></section>
+<section class="page" id="p-english-README" data-title="Spoken English and Presentation Skills for IT Careers" hidden><h1>Spoken English and Presentation Skills for IT Careers</h1>
+<p>Goal: speak <strong>clearly, confidently and fluently</strong> in interviews, stand-ups, demos and client calls.
+Fluency is not perfect grammar or an accent. It is <strong>speaking steadily, with clear structure, without long freezes.</strong></p>
+<h2>Files</h2>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#english-90_day_plan">90_day_plan.md</a></td>
+<td>Day-by-day structure for 3 months</td>
+</tr>
+<tr>
+<td><a href="#english-daily_routine">daily_routine.md</a></td>
+<td>30-minute daily practice routine</td>
+</tr>
+<tr>
+<td><a href="#english-presentation_framework">presentation_framework.md</a></td>
+<td>How to present anything in English</td>
+</tr>
+<tr>
+<td><a href="#english-phrase_bank">phrase_bank.md</a></td>
+<td>Ready-to-use phrases for meetings and presentations</td>
+</tr>
+<tr>
+<td><a href="#english-tech_vocabulary">tech_vocabulary.md</a></td>
+<td>IT words with pronunciation hints</td>
+</tr>
+<tr>
+<td><a href="#english-interview_english">interview_english.md</a></td>
+<td>HR + technical interview answers and structures</td>
+</tr>
+<tr>
+<td><a href="#english-fluency_techniques">fluency_techniques.md</a></td>
+<td>Fix filler words, hesitation, pace, pronunciation</td>
+</tr>
+<tr>
+<td><a href="#english-self_review_checklist">self_review_checklist.md</a></td>
+<td>Score your own recordings</td>
+</tr>
+<tr>
+<td><code>scripts/</code></td>
+<td>Fill-in-the-blank scripts: intro, stand-up, demo, incident update</td>
+</tr>
+</tbody>
+</table>
+<h2>Tools</h2>
+<pre><code class="language-bash">python speaking_tracker.py log 20 &quot;Shadowing + self intro&quot;
+python speaking_tracker.py stats
+python wpm_calculator.py my_script.txt 90     # 90 seconds
+</code></pre><div class="done"><button class="btn alt" data-done="english-README">Mark as complete</button></div></section>
+<section class="page" id="p-english-90_day_plan" data-title="90-Day Spoken English Plan" hidden><h1>90-Day Spoken English Plan</h1>
+<p>Commit to <strong>30 minutes daily</strong>. Consistency beats long weekend sessions.</p>
+<h2>Phase 1 (Days 1-30): Build the habit and the base</h2>
+<ul>
+<li>Speak aloud every day. Shadow 10 minutes of one speaker (see <code>daily_routine.md</code>).</li>
+<li>Learn 5 new phrases a day from <code>phrase_bank.md</code>; use each in 2 sentences.</li>
+<li>Week 1: pronunciation basics (word stress, vowel length, "th", "v/w").</li>
+<li>Week 2: self-introduction in 60 seconds. Record it; re-record on Day 14.</li>
+<li>Week 3: describe your day, your college, your hometown, your goals (present, past, future).</li>
+<li>Week 4: explain a Python concept in 2 minutes (variable, loop, function).</li>
+<li><strong>Milestone:</strong> a 2-minute self-introduction without reading.</li>
+</ul>
+<h2>Phase 2 (Days 31-60): Structure and clarity</h2>
+<ul>
+<li>Learn the <strong>PREP</strong> and <strong>STAR</strong> structures (see <code>interview_english.md</code>).</li>
+<li>Present one project in 3 minutes weekly (use <code>scripts/project_demo.md</code>).</li>
+<li>Reduce fillers ("umm", "like", "basically"). Replace with a silent pause.</li>
+<li>Join one speaking partner/club session weekly (online communities, college groups, local meetups).</li>
+<li>Practice stand-up updates daily (<code>scripts/standup_update.md</code>).</li>
+<li><strong>Milestone:</strong> a 5-minute technical presentation with a clear beginning, middle and end.</li>
+</ul>
+<h2>Phase 3 (Days 61-90): Pressure and polish</h2>
+<ul>
+<li>Do 2 mock interviews weekly with a friend, mentor or by recording yourself.</li>
+<li>Answer unexpected questions: use <em>"That's a good question. Let me think for a second."</em></li>
+<li>Practice Q&amp;A: summarize the question, answer, check: <em>"Does that answer your question?"</em></li>
+<li>Watch your recordings; score with <code>self_review_checklist.md</code>.</li>
+<li><strong>Milestone:</strong> a full mock interview (HR + technical) with calm pace and clear answers.</li>
+</ul>
+<h2>Weekly rhythm</h2>
+<table>
+<thead>
+<tr>
+<th>Day</th>
+<th>Focus</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mon</td>
+<td>New phrases + shadowing</td>
+</tr>
+<tr>
+<td>Tue</td>
+<td>Record 2-minute talk</td>
+</tr>
+<tr>
+<td>Wed</td>
+<td>Listen to your recording, note 3 fixes</td>
+</tr>
+<tr>
+<td>Thu</td>
+<td>Re-record with fixes</td>
+</tr>
+<tr>
+<td>Fri</td>
+<td>Present to a friend / online speaking partner</td>
+</tr>
+<tr>
+<td>Sat</td>
+<td>Mock interview / project demo</td>
+</tr>
+<tr>
+<td>Sun</td>
+<td>Light: podcast, YouTube talk, rest</td>
+</tr>
+</tbody>
+</table><div class="done"><button class="btn alt" data-done="english-90_day_plan">Mark as complete</button></div></section>
+<section class="page" id="p-english-daily_routine" data-title="30-Minute Daily Routine" hidden><h1>30-Minute Daily Routine</h1>
+<table>
+<thead>
+<tr>
+<th>Min</th>
+<th>Activity</th>
+<th>How</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0-10</td>
+<td><strong>Shadowing</strong></td>
+<td>Play 20-30 seconds of a clear speaker (TED-style talk, tech talk, podcast). Repeat after them at the same speed, copying rhythm, stress and intonation. Replay the same clip 5 times.</td>
+</tr>
+<tr>
+<td>10-15</td>
+<td><strong>Phrase practice</strong></td>
+<td>Take 5 phrases from the phrase bank. Say each in 2 situations from your own life/work.</td>
+</tr>
+<tr>
+<td>15-25</td>
+<td><strong>Speak and record</strong></td>
+<td>Pick a topic. Speak for 2 minutes without stopping. Record on your phone. If you freeze, say "What I mean is..." and continue.</td>
+</tr>
+<tr>
+<td>25-30</td>
+<td><strong>Review</strong></td>
+<td>Listen once. Write 1 thing you did well, 1 thing to fix. Log it with <code>speaking_tracker.py</code>.</td>
+</tr>
+</tbody>
+</table>
+<h2>Topic ideas (pick one a day)</h2>
+<ul>
+<li>Explain what a variable/function/API is, as if to a friend.</li>
+<li>Describe your last project and what was hard.</li>
+<li>Why do you want to work in IT?</li>
+<li>Describe a bug you fixed.</li>
+<li>Explain your daily routine / your city / your favorite app.</li>
+<li>Summarize a video you watched today.</li>
+</ul>
+<h2>Immersion habits (no extra time)</h2>
+<ul>
+<li>Change phone and laptop language to English.</li>
+<li>Watch tech talks with English subtitles, then without.</li>
+<li>Think in English while walking: narrate what you see.</li>
+<li>Keep a notebook of new words with a sentence you made yourself.</li>
+</ul><div class="done"><button class="btn alt" data-done="english-daily_routine">Mark as complete</button></div></section>
+<section class="page" id="p-english-fluency_techniques" data-title="Fluency Techniques" hidden><h1>Fluency Techniques</h1>
+<h2>1. Fix filler words ("umm", "like", "you know")</h2>
+<ul>
+<li>Record yourself and count fillers per minute.</li>
+<li>Replace a filler with a <strong>silent pause</strong>. Silence sounds thoughtful.</li>
+<li>Slow down slightly, since fillers appear when you speak faster than you think.</li>
+<li>Target: below 3 fillers per minute.</li>
+</ul>
+<h2>2. Speak in chunks, not word by word</h2>
+<p>Group words in meaning units, with tiny pauses between them:</p>
+<blockquote>
+<p>"I built a tracker | that records my expenses | and shows a monthly summary."</p>
+</blockquote>
+<h2>3. Shadowing (the most effective free method)</h2>
+<ol>
+<li>Pick a 30-second clip with a transcript.</li>
+<li>Listen 3 times while reading.</li>
+<li>Speak along, 1 second behind the speaker.</li>
+<li>Record and compare.
+Focus on rhythm and stress, not on sounding like someone else.</li>
+</ol>
+<h2>4. Word stress and sentence stress</h2>
+<ul>
+<li>English is <strong>stress-timed</strong>: important words are loud, long and clear. Small words are quick and soft.</li>
+<li>"I WANT to BUILD a WEB app." (stress the content words)</li>
+<li>Look up stress in an online dictionary and listen to the audio every time.</li>
+</ul>
+<h2>5. Common pronunciation issues to practice</h2>
+<ul>
+<li><strong>th</strong>: <em>think, three, the, this</em> (tongue between teeth)</li>
+<li><strong>v / w</strong>: <em>very / wary, vine / wine</em></li>
+<li><strong>Final consonants</strong>: say the "d", "t", "s" at the end: <em>worked, tested, tests</em></li>
+<li><strong>Schwa</strong> (the weak "uh" sound): <em>about, problem, computer</em></li>
+</ul>
+<h2>6. Think in English</h2>
+<ul>
+<li>Narrate your actions: "I'm opening the file. Now I'm running the test."</li>
+<li>Describe what you see for 2 minutes while walking.</li>
+<li>Do not translate word by word. Learn whole phrases instead.</li>
+</ul>
+<h2>7. Fix hesitation</h2>
+<ul>
+<li>Have 5 "bridge phrases" ready (see <code>phrase_bank.md</code>).</li>
+<li>Use simple words. A clear simple sentence beats a complicated broken one.</li>
+<li>If you make a mistake, correct it once and continue. Don't stop.</li>
+</ul>
+<h2>8. Listening</h2>
+<ul>
+<li>Daily: 15 minutes of tech podcasts or conference talks.</li>
+<li>Use English subtitles first, then no subtitles.</li>
+<li>Write down 3 phrases per day, then use them.</li>
+</ul>
+<h2>9. Vocabulary</h2>
+<ul>
+<li>Learn words in sentences, not lists.</li>
+<li>Review with spaced repetition (Anki or similar) for 10 minutes a day.</li>
+<li>Learn collocations: <em>make a decision, run a test, fix a bug, push code, raise an issue</em>.</li>
+</ul>
+<h2>10. Get feedback</h2>
+<ul>
+<li>Speaking partner or club once a week.</li>
+<li>Record weekly and compare Week 1 vs Week 4.</li>
+<li>Ask one mentor to point out your 2 most common mistakes.</li>
+</ul>
+<h2>Free resource types to look for</h2>
+<p>Tech conference talks, TED talks, BBC Learning English, podcasts on software/careers, YouTube channels about interview English, your own recordings. Choose speakers you find clear and easy to follow.</p><div class="done"><button class="btn alt" data-done="english-fluency_techniques">Mark as complete</button></div></section>
+<section class="page" id="p-english-interview_english" data-title="Interview English: Structures and Sample Answers" hidden><h1>Interview English: Structures and Sample Answers</h1>
+<h2>Two structures to memorize</h2>
+<p><strong>STAR</strong> (for experience questions): <strong>S</strong>ituation, <strong>T</strong>ask, <strong>A</strong>ction, <strong>R</strong>esult
+<strong>PREP</strong> (for opinion/technical questions): <strong>P</strong>oint, <strong>R</strong>eason, <strong>E</strong>xample, <strong>P</strong>oint</p>
+<h2>1. "Tell me about yourself" (60-90 seconds)</h2>
+<p>Structure: Present, Past, Future.</p>
+<blockquote>
+<p>"Good morning. My name is ___. I'm a recent graduate in ___ and I'm learning Python development.
+Over the last few months, I've built six projects, including an expense tracker, a log analyzer and a REST API using FastAPI. I publish all of them on GitHub.
+I enjoy solving problems with code and automating repetitive tasks.
+I'm now looking for an entry-level Python role where I can learn from a team and contribute from day one."</p>
+</blockquote>
+<h2>2. "Why should we hire you?"</h2>
+<blockquote>
+<p>"I'm a fast learner with a strong Python foundation, and I can show it with real projects on GitHub. I communicate clearly, I ask questions early, and I finish what I start. I'd bring energy and discipline to the team."</p>
+</blockquote>
+<h2>3. "What are your strengths and weaknesses?"</h2>
+<blockquote>
+<p>"My strength is consistency. I practice coding every day and I've committed code for X days in a row.
+A weakness I'm working on is public speaking. I practice by recording presentations and getting feedback, and it's improving every week."</p>
+</blockquote>
+<h2>4. "Describe a challenge you faced" (STAR)</h2>
+<blockquote>
+<p>"<strong>Situation:</strong> In my expense tracker, the app crashed when the JSON file was empty.
+<strong>Task:</strong> I needed to make the app reliable.
+<strong>Action:</strong> I read the traceback, found the missing error handling, and wrapped file loading in try/except. I also added a test.
+<strong>Result:</strong> The crash disappeared and I learned to always test edge cases."</p>
+</blockquote>
+<h2>5. Technical questions: sample answers</h2>
+<p><strong>What is the difference between a list and a tuple?</strong></p>
+<blockquote>
+<p>"A list is mutable, so you can change it after creation. A tuple is immutable. I use tuples for fixed data, like coordinates, and lists for collections that change. Tuples can also be dictionary keys, because they're hashable."</p>
+</blockquote>
+<p><strong>What is a decorator?</strong></p>
+<blockquote>
+<p>"A decorator is a function that takes another function and adds behavior without changing its code. For example, I can write a timer decorator to measure how long a function takes."</p>
+</blockquote>
+<p><strong>What is the difference between <code>==</code> and <code>is</code>?</strong></p>
+<blockquote>
+<p>"<code>==</code> compares values. <code>is</code> checks whether two names point to the exact same object in memory."</p>
+</blockquote>
+<p><strong>What are <code>*args</code> and <code>**kwargs</code>?</strong></p>
+<blockquote>
+<p>"<code>*args</code> collects extra positional arguments into a tuple. <code>**kwargs</code> collects extra keyword arguments into a dictionary."</p>
+</blockquote>
+<p><strong>What is a virtual environment and why use it?</strong></p>
+<blockquote>
+<p>"It's an isolated Python environment for one project, so dependencies don't conflict between projects. I create it with <code>python -m venv</code>."</p>
+</blockquote>
+<p><strong>What is a REST API?</strong></p>
+<blockquote>
+<p>"It's a way for programs to communicate over HTTP using standard methods: GET to read, POST to create, PUT or PATCH to update, DELETE to remove. Data is usually exchanged as JSON."</p>
+</blockquote>
+<h2>6. Thinking aloud during coding rounds</h2>
+<ul>
+<li>"Let me restate the problem to make sure I understand."</li>
+<li>"A simple approach is brute force. It would be O(n squared). Then I'll look for something faster."</li>
+<li>"I'll use a dictionary here because lookups are O(1)."</li>
+<li>"Let me test with an edge case: an empty list."</li>
+<li>"I'd improve this by..."</li>
+</ul>
+<h2>7. When you don't know the answer</h2>
+<blockquote>
+<p>"I haven't worked with that directly. My understanding is ___. I'd start by reading the documentation and testing a small example."</p>
+</blockquote>
+<p>Honesty plus a learning plan is better than guessing.</p>
+<h2>8. Questions to ask the interviewer</h2>
+<ul>
+<li>"What does the first 90 days look like for this role?"</li>
+<li>"How does the team handle code reviews and mentoring?"</li>
+<li>"What technologies does the team use day to day?"</li>
+<li>"How do you measure success for this role?"</li>
+</ul>
+<h2>9. Salary and notice period (stay calm and polite)</h2>
+<ul>
+<li>"I'm looking for a fair package based on the role and market range. Could you share the budgeted range?"</li>
+<li>"My notice period is ___, and I'm open to discussing a faster transition."</li>
+</ul>
+<h2>10. Closing</h2>
+<blockquote>
+<p>"Thank you for your time. I'm very interested in this role and I'd be glad to share any more details."</p>
+</blockquote>
+<h2>Follow-up email</h2>
+<blockquote>
+<p>Subject: Thank you - Python Developer interview</p>
+<p>Dear ___,
+Thank you for speaking with me today. I enjoyed learning about ___. Our discussion made me even more interested in the role. Please let me know if you need anything else from me.
+Best regards,</p>
+<hr />
+</blockquote><div class="done"><button class="btn alt" data-done="english-interview_english">Mark as complete</button></div></section>
+<section class="page" id="p-english-phrase_bank" data-title="Phrase Bank for Meetings and Presentations" hidden><h1>Phrase Bank for Meetings and Presentations</h1>
+<h2>Starting</h2>
+<ul>
+<li>Good morning/afternoon, everyone. Thanks for joining.</li>
+<li>Let me start by introducing myself.</li>
+<li>Today I'd like to walk you through...</li>
+<li>The purpose of this session is to...</li>
+<li>By the end, you'll understand...</li>
+</ul>
+<h2>Structuring</h2>
+<ul>
+<li>First of all... / Secondly... / Finally...</li>
+<li>Let's move on to...</li>
+<li>That brings me to my next point.</li>
+<li>To give you some background...</li>
+<li>Let me go back to what I said earlier.</li>
+</ul>
+<h2>Explaining</h2>
+<ul>
+<li>In simple terms, this means...</li>
+<li>For example... / For instance...</li>
+<li>Let me break it down into steps.</li>
+<li>The main reason is...</li>
+<li>What this shows is...</li>
+<li>Think of it like...</li>
+</ul>
+<h2>Describing data and trends</h2>
+<ul>
+<li>Sales increased by 20% compared to last month.</li>
+<li>There was a sharp rise/drop in...</li>
+<li>The number remained stable/flat.</li>
+<li>The biggest factor was...</li>
+<li>As you can see on this chart...</li>
+</ul>
+<h2>Giving opinions politely</h2>
+<ul>
+<li>In my opinion... / From my experience...</li>
+<li>I would suggest we...</li>
+<li>One option could be...</li>
+<li>I see your point, but I'd like to add...</li>
+<li>I may be wrong, but I think...</li>
+</ul>
+<h2>Buying time (instead of "umm")</h2>
+<ul>
+<li>That's a good question. Let me think for a second.</li>
+<li>Let me put it another way.</li>
+<li>What I mean is...</li>
+<li>Give me a moment to check that.</li>
+</ul>
+<h2>Asking for clarification</h2>
+<ul>
+<li>Could you repeat that, please?</li>
+<li>Sorry, I didn't catch that. Could you say it again more slowly?</li>
+<li>Just to confirm, you mean...?</li>
+<li>Could you give an example?</li>
+</ul>
+<h2>Disagreeing respectfully</h2>
+<ul>
+<li>I understand your concern, however...</li>
+<li>That's a fair point. Another way to look at it is...</li>
+<li>I see it slightly differently...</li>
+</ul>
+<h2>Updates at work</h2>
+<ul>
+<li>I completed ___ yesterday. Today I'm working on ___. I'm blocked by ___.</li>
+<li>I need some help with ___.</li>
+<li>It will be done by end of day / Friday.</li>
+<li>I ran into an issue with ___, and here's how I'm fixing it.</li>
+<li>Let me share my screen.</li>
+</ul>
+<h2>Closing</h2>
+<ul>
+<li>To sum up... / To wrap up...</li>
+<li>The key takeaway is...</li>
+<li>The next steps are...</li>
+<li>Thank you for your time. Any questions?</li>
+</ul>
+<h2>Email openers and closers</h2>
+<ul>
+<li>I hope you're doing well. / Thank you for your quick reply.</li>
+<li>I'm writing to follow up on...</li>
+<li>Please find attached... / Could you please confirm...</li>
+<li>Looking forward to hearing from you. / Best regards,</li>
+</ul><div class="done"><button class="btn alt" data-done="english-phrase_bank">Mark as complete</button></div></section>
+<section class="page" id="p-english-presentation_framework" data-title="How to Present in English (Fluent and Clear)" hidden><h1>How to Present in English (Fluent and Clear)</h1>
+<h2>1. The structure: "Tell them what you'll tell them"</h2>
+<table>
+<thead>
+<tr>
+<th>Part</th>
+<th>Time share</th>
+<th>What to say</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Opening</strong></td>
+<td>10%</td>
+<td>Greet, introduce yourself, topic, why it matters, agenda</td>
+</tr>
+<tr>
+<td><strong>Body</strong></td>
+<td>75%</td>
+<td>2-3 main points, each with an example or data</td>
+</tr>
+<tr>
+<td><strong>Closing</strong></td>
+<td>15%</td>
+<td>Summary, key takeaway, next step, thank you, invite questions</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Opening template</strong></p>
+<blockquote>
+<p>"Good morning, everyone. My name is ___. Today I'll talk about ___. This matters because ___. I'll cover three things: first ___, second ___, and finally ___."</p>
+</blockquote>
+<p><strong>Closing template</strong></p>
+<blockquote>
+<p>"To summarize: ___, ___, and ___. The key takeaway is ___. Thank you. I'm happy to take any questions."</p>
+</blockquote>
+<h2>2. Use PREP for every point</h2>
+<p><strong>P</strong>oint, <strong>R</strong>eason, <strong>E</strong>xample, <strong>P</strong>oint again.</p>
+<blockquote>
+<p>"We should add tests <em>(point)</em> because they catch bugs early <em>(reason)</em>. For example, last week a test caught a crash in my login function <em>(example)</em>. So, testing saves time <em>(point)</em>."</p>
+</blockquote>
+<h2>3. Slide rules</h2>
+<ul>
+<li>One idea per slide, at most 6 lines, large font.</li>
+<li>Slide title = the message ("Sales grew 30% in Q4"), not a topic ("Sales").</li>
+<li>Visuals over text. Do not read slides word for word.</li>
+<li>1 slide per 1-2 minutes.</li>
+</ul>
+<h2>4. Delivery: the 5 controls</h2>
+<ol>
+<li><strong>Pace:</strong> about 120-150 words per minute. Slower for key points.</li>
+<li><strong>Pause:</strong> stop for 1-2 seconds after each important sentence. Silence sounds confident.</li>
+<li><strong>Stress:</strong> emphasize key words ("sales GREW thirty percent").</li>
+<li><strong>Intonation:</strong> voice goes down at the end of statements, up for yes/no questions.</li>
+<li><strong>Body language:</strong> eye contact (or look at the camera), open posture, calm hands.</li>
+</ol>
+<h2>5. Online presentations</h2>
+<ul>
+<li>Camera at eye level, good light, quiet room, mic test.</li>
+<li>Share only the needed window, close notifications.</li>
+<li>Check in: <em>"Can everyone see my screen?"</em> and <em>"Any questions so far?"</em></li>
+</ul>
+<h2>6. Handling Q&amp;A</h2>
+<ol>
+<li>Listen fully. Do not interrupt.</li>
+<li>Paraphrase: <em>"So you're asking whether..."</em></li>
+<li>Answer in 2-3 sentences using PREP.</li>
+<li>Check: <em>"Does that answer your question?"</em></li>
+<li>If you don't know: <em>"I don't know that yet, but I'll check and get back to you by tomorrow."</em></li>
+</ol>
+<h2>7. Handling nerves</h2>
+<ul>
+<li>Practice the first 30 seconds until it is automatic.</li>
+<li>Breathe in for 4 seconds, out for 6, before you start.</li>
+<li>It is OK to pause and look at your notes. Say: <em>"Let me check my notes for a second."</em></li>
+<li>Nervousness is normal. Listeners notice it far less than you think.</li>
+</ul>
+<h2>8. Rehearsal plan</h2>
+<ol>
+<li>Write bullet points, not a full script.</li>
+<li>Speak it aloud alone, 3 times.</li>
+<li>Time it, and cut 10%.</li>
+<li>Record, review, fix.</li>
+<li>Present to one friend and ask for 2 honest comments.</li>
+</ol><div class="done"><button class="btn alt" data-done="english-presentation_framework">Mark as complete</button></div></section>
+<section class="page" id="p-english-self_review_checklist" data-title="Self-Review Checklist for Recordings" hidden><h1>Self-Review Checklist for Recordings</h1>
+<p>Score each item from 1 (weak) to 5 (strong). Re-test every 2 weeks.</p>
+<table>
+<thead>
+<tr>
+<th>Area</th>
+<th>Question</th>
+<th>Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Structure</td>
+<td>Clear opening, 2-3 points, clear closing?</td>
+<td></td>
+</tr>
+<tr>
+<td>Clarity</td>
+<td>Could a beginner follow it?</td>
+<td></td>
+</tr>
+<tr>
+<td>Pace</td>
+<td>Around 120-150 words per minute?</td>
+<td></td>
+</tr>
+<tr>
+<td>Pauses</td>
+<td>Did I pause instead of using fillers?</td>
+<td></td>
+</tr>
+<tr>
+<td>Fillers</td>
+<td>Fewer than 3 per minute?</td>
+<td></td>
+</tr>
+<tr>
+<td>Stress</td>
+<td>Key words emphasized?</td>
+<td></td>
+</tr>
+<tr>
+<td>Pronunciation</td>
+<td>Tech words correct?</td>
+<td></td>
+</tr>
+<tr>
+<td>Confidence</td>
+<td>Voice steady, not rushed?</td>
+<td></td>
+</tr>
+<tr>
+<td>Examples</td>
+<td>At least one concrete example?</td>
+<td></td>
+</tr>
+<tr>
+<td>Energy</td>
+<td>Sounded interested, not flat?</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>After each review</h2>
+<ul>
+<li>Best thing I did: ______</li>
+<li>One thing to fix next time: ______</li>
+<li>Phrase to practice: ______</li>
+</ul>
+<p>Track the trend, not perfection.</p><div class="done"><button class="btn alt" data-done="english-self_review_checklist">Mark as complete</button></div></section>
+<section class="page" id="p-english-tech_vocabulary" data-title="IT Vocabulary: Say It Correctly" hidden><h1>IT Vocabulary: Say It Correctly</h1>
+<p>Hints use simple sounds. Capital letters = stressed syllable.</p>
+<table>
+<thead>
+<tr>
+<th>Word</th>
+<th>Say it like</th>
+<th>Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Python</td>
+<td>PY-thon</td>
+<td>"th" as in <em>think</em></td>
+</tr>
+<tr>
+<td>Java</td>
+<td>JAH-vuh</td>
+<td></td>
+</tr>
+<tr>
+<td>API</td>
+<td>ay-pee-EYE</td>
+<td></td>
+</tr>
+<tr>
+<td>JSON</td>
+<td>JAY-son</td>
+<td></td>
+</tr>
+<tr>
+<td>SQL</td>
+<td>ess-kyoo-ELL or SEE-kwul</td>
+<td>both are accepted</td>
+</tr>
+<tr>
+<td>GUI</td>
+<td>GOO-ee</td>
+<td></td>
+</tr>
+<tr>
+<td>Git</td>
+<td>git (hard g)</td>
+<td></td>
+</tr>
+<tr>
+<td>GitHub</td>
+<td>GIT-hub</td>
+<td></td>
+</tr>
+<tr>
+<td>Cache</td>
+<td>cash</td>
+<td>not "ca-shay"</td>
+</tr>
+<tr>
+<td>Queue</td>
+<td>kyoo</td>
+<td></td>
+</tr>
+<tr>
+<td>Linux</td>
+<td>LIN-ux</td>
+<td></td>
+</tr>
+<tr>
+<td>Kubernetes</td>
+<td>koo-ber-NET-eez</td>
+<td></td>
+</tr>
+<tr>
+<td>nginx</td>
+<td>engine-X</td>
+<td></td>
+</tr>
+<tr>
+<td>Data</td>
+<td>DAY-ta or DAH-ta</td>
+<td>both fine</td>
+</tr>
+<tr>
+<td>Algorithm</td>
+<td>AL-guh-ri-thum</td>
+<td></td>
+</tr>
+<tr>
+<td>Database</td>
+<td>DAY-ta-base</td>
+<td></td>
+</tr>
+<tr>
+<td>Debug</td>
+<td>dee-BUG</td>
+<td></td>
+</tr>
+<tr>
+<td>Deploy</td>
+<td>dee-PLOY</td>
+<td></td>
+</tr>
+<tr>
+<td>Repository / repo</td>
+<td>ri-POZ-i-tor-ee / REE-poh</td>
+<td></td>
+</tr>
+<tr>
+<td>Variable</td>
+<td>VAIR-ee-uh-bul</td>
+<td></td>
+</tr>
+<tr>
+<td>Parameter</td>
+<td>puh-RAM-i-ter</td>
+<td></td>
+</tr>
+<tr>
+<td>Iterate</td>
+<td>IT-er-ate</td>
+<td></td>
+</tr>
+<tr>
+<td>Integer</td>
+<td>IN-ti-jer</td>
+<td></td>
+</tr>
+<tr>
+<td>Boolean</td>
+<td>BOO-lee-un</td>
+<td></td>
+</tr>
+<tr>
+<td>Asynchronous</td>
+<td>ay-SING-kro-nus</td>
+<td></td>
+</tr>
+<tr>
+<td>Syntax</td>
+<td>SIN-tax</td>
+<td></td>
+</tr>
+<tr>
+<td>Schema</td>
+<td>SKEE-ma</td>
+<td></td>
+</tr>
+<tr>
+<td>Authentication</td>
+<td>aw-then-ti-KAY-shun</td>
+<td></td>
+</tr>
+<tr>
+<td>Architecture</td>
+<td>AR-ki-tek-cher</td>
+<td></td>
+</tr>
+<tr>
+<td>Environment</td>
+<td>en-VY-run-ment</td>
+<td></td>
+</tr>
+<tr>
+<td>Feature</td>
+<td>FEE-cher</td>
+<td></td>
+</tr>
+<tr>
+<td>Sprint</td>
+<td>sprint</td>
+<td>Agile time-box</td>
+</tr>
+<tr>
+<td>Scrum</td>
+<td>skrum</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2>Useful verbs for IT work</h2>
+<p>build, implement, deploy, debug, refactor, optimize, integrate, migrate, automate, monitor, review, merge, roll back, escalate, troubleshoot</p>
+<h2>Common mistakes</h2>
+<ul>
+<li>"I have 22 years" -&gt; <strong>"I'm 22 years old."</strong></li>
+<li>"I am having a doubt" -&gt; <strong>"I have a question."</strong></li>
+<li>"Do the needful" -&gt; <strong>"Please take the necessary action."</strong></li>
+<li>"Revert back" -&gt; <strong>"Reply"</strong> (or <em>revert</em> to mean undo a change)</li>
+<li>"Prepone" -&gt; <strong>"Move earlier."</strong></li>
+<li>"Out of station" -&gt; <strong>"Out of town."</strong></li>
+<li>"I will explain you" -&gt; <strong>"I will explain it to you."</strong></li>
+<li>"Discuss about" -&gt; <strong>"Discuss"</strong> (no "about")</li>
+</ul><div class="done"><button class="btn alt" data-done="english-tech_vocabulary">Mark as complete</button></div></section>
+<section class="page" id="p-english-script-incident_update" data-title="Script: Explaining a Problem or Incident" hidden><h1>Script: Explaining a Problem or Incident</h1>
+<blockquote>
+<p><strong>What happened:</strong> "At 10:15, our API started returning errors for some users."
+<strong>Impact:</strong> "About 5% of requests failed for 20 minutes."
+<strong>Cause:</strong> "A configuration change set the wrong database timeout."
+<strong>Fix:</strong> "We rolled back the change and the service recovered at 10:35."
+<strong>Prevention:</strong> "We'll add a test and a review step for configuration changes."</p>
+</blockquote>
+<h2>Tone</h2>
+<p>Calm, factual, no blaming: say "the change caused" not "he caused".</p><div class="done"><button class="btn alt" data-done="english-script-incident_update">Mark as complete</button></div></section>
+<section class="page" id="p-english-script-meeting_phrases" data-title="Script: Speaking Up in Meetings" hidden><h1>Script: Speaking Up in Meetings</h1>
+<p><strong>Join the conversation</strong>
+- "Can I add something here?"
+- "If I may, I'd like to share a quick thought."</p>
+<p><strong>Ask for clarity</strong>
+- "Just to be sure I understand, you want ___, correct?"
+- "Could you share an example?"</p>
+<p><strong>Suggest an idea</strong>
+- "What if we try ___?"
+- "One option could be ___. The benefit is ___."</p>
+<p><strong>Give a status</strong>
+- "I'm on track to deliver by Friday."
+- "I'd need two more days because ___."</p>
+<p><strong>Close a topic</strong>
+- "So, to summarize, we agreed on ___. I'll take the action on ___ by ___."</p><div class="done"><button class="btn alt" data-done="english-script-meeting_phrases">Mark as complete</button></div></section>
+<section class="page" id="p-english-script-project_demo" data-title="Script: Project Demo (3 minutes)" hidden><h1>Script: Project Demo (3 minutes)</h1>
+<ol>
+<li><strong>Hook (15 s):</strong> "Have you ever lost track of where your money goes? I built a tool to fix that."</li>
+<li><strong>Problem (20 s):</strong> What problem does it solve and for whom?</li>
+<li><strong>Solution (30 s):</strong> One sentence on what it does and the tech used (Python, JSON, argparse).</li>
+<li><strong>Live demo (60 s):</strong> Show 2-3 actions. Narrate: "Now I'm adding an expense... as you can see, the summary updates."</li>
+<li><strong>Challenge (25 s):</strong> "The hardest part was ___. I solved it by ___."</li>
+<li><strong>Result and next steps (20 s):</strong> "Next I plan to add ___."</li>
+<li><strong>Close (10 s):</strong> "Thank you. Happy to take questions."</li>
+</ol>
+<h2>Language to use</h2>
+<ul>
+<li>"The goal of this project is..."</li>
+<li>"Let me show you how it works."</li>
+<li>"Under the hood, it uses..."</li>
+<li>"One thing I'm proud of is..."</li>
+<li>"If I had more time, I would..."</li>
+</ul><div class="done"><button class="btn alt" data-done="english-script-project_demo">Mark as complete</button></div></section>
+<section class="page" id="p-english-script-self_introduction" data-title="Script: Self-Introduction (60 seconds)" hidden><h1>Script: Self-Introduction (60 seconds)</h1>
+<p>Fill the blanks, practice aloud 10 times, then speak without reading.</p>
+<blockquote>
+<p>Hello, my name is <strong>___</strong>. I'm from <strong>___</strong>, and I recently completed <strong>___</strong> (degree/course) at <strong>___</strong>.</p>
+<p>I'm passionate about <strong>Python and problem-solving</strong>. In the last <strong>___</strong> months, I've built projects like <strong>___</strong> and <strong>___</strong>, and I've shared them on GitHub.</p>
+<p>My main strengths are <strong>___</strong> and <strong>___</strong>. For example, <strong>(one short example)</strong>.</p>
+<p>I'm looking for an opportunity as a <strong>___</strong>, where I can <strong>learn from experienced engineers and add value to the team</strong>.</p>
+<p>Thank you.</p>
+</blockquote>
+<p><strong>Checklist:</strong> name, background, skills, proof (projects), goal. About 130 words at a calm pace.</p><div class="done"><button class="btn alt" data-done="english-script-self_introduction">Mark as complete</button></div></section>
+<section class="page" id="p-english-script-standup_update" data-title="Script: Daily Stand-up (30 seconds)" hidden><h1>Script: Daily Stand-up (30 seconds)</h1>
+<blockquote>
+<p><strong>Yesterday</strong> I ___ (finished the login API / fixed the date bug).
+<strong>Today</strong> I'm going to ___ (write tests / start the report page).
+<strong>Blockers:</strong> I'm stuck on ___ / I don't have any blockers.</p>
+</blockquote>
+<h2>Examples</h2>
+<blockquote>
+<p>"Yesterday I finished the user registration endpoint and wrote three tests. Today I'll work on password validation. I have no blockers."</p>
+<p>"Yesterday I investigated the failing deployment. I found a missing environment variable. Today I'll fix it and update the docs. I need access to the staging server."</p>
+</blockquote>
+<h2>Useful phrases</h2>
+<ul>
+<li>"I'm making good progress on..."</li>
+<li>"I'm slightly behind because..., but I expect to finish by..."</li>
+<li>"Could someone review my pull request?"</li>
+</ul><div class="done"><button class="btn alt" data-done="english-script-standup_update">Mark as complete</button></div></section>
+<section class="page" id="p-career-README" data-title="Career Toolkit: Getting Hired in IT" hidden><h1>Career Toolkit: Getting Hired in IT</h1>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#career-resume_guide">resume_guide.md</a></td>
+<td>One-page fresher resume</td>
+</tr>
+<tr>
+<td><a href="#career-github_linkedin">github_linkedin.md</a></td>
+<td>Profiles that recruiters trust</td>
+</tr>
+<tr>
+<td><a href="#career-job_search_plan">job_search_plan.md</a></td>
+<td>Where and how to apply, weekly targets</td>
+</tr>
+<tr>
+<td><a href="#career-interview_questions">interview_questions.md</a></td>
+<td>50 Python and general questions</td>
+</tr>
+<tr>
+<td><a href="#career-dsa_practice">dsa_practice.md</a></td>
+<td>Easy problems to practice</td>
+</tr>
+</tbody>
+</table><div class="done"><button class="btn alt" data-done="career-README">Mark as complete</button></div></section>
+<section class="page" id="p-career-dsa_practice" data-title="Easy Data Structures and Algorithms Practice" hidden><h1>Easy Data Structures and Algorithms Practice</h1>
+<p>Focus on patterns, not volume. Aim for about 30 easy problems before interviews.</p>
+<table>
+<thead>
+<tr>
+<th>Topic</th>
+<th>Problems</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Arrays/lists</td>
+<td>Two sum, max subarray (Kadane), merge sorted lists, rotate list</td>
+</tr>
+<tr>
+<td>Strings</td>
+<td>Palindrome, anagram check, reverse words, first non-repeating character</td>
+</tr>
+<tr>
+<td>Hash maps</td>
+<td>Word frequency, group anagrams, longest consecutive sequence</td>
+</tr>
+<tr>
+<td>Stack/queue</td>
+<td>Valid parentheses, min stack, queue using stacks</td>
+</tr>
+<tr>
+<td>Search/sort</td>
+<td>Binary search, bubble/merge sort basics</td>
+</tr>
+<tr>
+<td>Recursion</td>
+<td>Factorial, fibonacci, power function</td>
+</tr>
+<tr>
+<td>Linked list</td>
+<td>Reverse list, detect cycle</td>
+</tr>
+</tbody>
+</table>
+<h2>Method (say it aloud in interviews)</h2>
+<ol>
+<li>Restate the problem and examples.</li>
+<li>Ask about edge cases (empty input, negatives, duplicates).</li>
+<li>Explain a brute-force solution and its complexity.</li>
+<li>Improve it.</li>
+<li>Code, then test with examples.</li>
+<li>State time and space complexity.</li>
+</ol>
+<p>Practice on free platforms such as HackerRank, LeetCode (easy tier) and Codewars.</p><div class="done"><button class="btn alt" data-done="career-dsa_practice">Mark as complete</button></div></section>
+<section class="page" id="p-career-github_linkedin" data-title="GitHub and LinkedIn" hidden><h1>GitHub and LinkedIn</h1>
+<h2>GitHub</h2>
+<ul>
+<li>Pin 4-6 best repos, each with: clear README, screenshot or demo, setup steps, tests.</li>
+<li>Commit regularly: small commits, clear messages.</li>
+<li>Add a profile README: who you are, skills, projects, how to reach you.</li>
+<li>Use <code>.gitignore</code>; never commit passwords or API keys.</li>
+</ul>
+<h2>README template</h2>
+<pre><code># Project name
+One-line description.
+## Features
+## Tech stack
+## Setup
+## Usage / Screenshots
+## What I learned
+</code></pre>
+<h2>LinkedIn</h2>
+<ul>
+<li>Photo: clear, plain background, smiling.</li>
+<li>Headline: "Python Developer | FastAPI | SQL | Automation | Open to work", not just "Student".</li>
+<li>About: 4-5 lines, who you are, what you build, what you want.</li>
+<li>Featured: GitHub projects, resume.</li>
+<li>Post weekly: "I built X. Here's what I learned." Posting in English improves both visibility and fluency.</li>
+<li>Connect with recruiters, engineers and alumni with a personal note:<blockquote>
+<p>"Hi ___, I'm a Python developer exploring entry-level roles. I'd love to connect and learn from your experience at ___."</p>
+</blockquote>
+</li>
+<li>Ask for referrals politely, with your resume and a specific job link.</li>
+</ul><div class="done"><button class="btn alt" data-done="career-github_linkedin">Mark as complete</button></div></section>
+<section class="page" id="p-career-interview_questions" data-title="Python and General Interview Questions" hidden><h1>Python and General Interview Questions</h1>
+<h2>Python basics</h2>
+<ol>
+<li>What are Python's key features? (interpreted, dynamically typed, readable, large ecosystem)</li>
+<li>Mutable vs immutable types?</li>
+<li>List vs tuple vs set vs dict?</li>
+<li>What is a list comprehension?</li>
+<li><code>==</code> vs <code>is</code>?</li>
+<li>What is <code>None</code>?</li>
+<li>What are <code>*args</code> and <code>**kwargs</code>?</li>
+<li>Explain scope (LEGB rule).</li>
+<li>What is a lambda?</li>
+<li>Shallow copy vs deep copy?</li>
+</ol>
+<h2>Intermediate</h2>
+<ol>
+<li>What is a decorator?</li>
+<li>What is a generator? <code>yield</code> vs <code>return</code>?</li>
+<li>What is the GIL?</li>
+<li>How does exception handling work? <code>finally</code>?</li>
+<li>What are context managers (<code>with</code>)?</li>
+<li>What is <code>__name__ == "__main__"</code>?</li>
+<li>Explain <code>@staticmethod</code>, <code>@classmethod</code> and instance methods.</li>
+<li>What is inheritance? Multiple inheritance? MRO?</li>
+<li>What are dunder methods? Examples.</li>
+<li>How does Python manage memory (reference counting, garbage collection)?</li>
+</ol>
+<h2>Practical</h2>
+<ol>
+<li>How do you read a large file efficiently? (iterate line by line)</li>
+<li>How do you handle JSON data?</li>
+<li>How do you make an HTTP request and handle errors?</li>
+<li>How do you structure a project?</li>
+<li>How do you manage dependencies? (venv, requirements.txt, pip)</li>
+<li>How do you test your code? (pytest)</li>
+<li>How do you debug? (traceback, logging, pdb)</li>
+<li>What is PEP 8?</li>
+<li>What are type hints? Benefits?</li>
+<li>How do you use environment variables for secrets?</li>
+</ol>
+<h2>SQL and web</h2>
+<ol>
+<li>SELECT, WHERE, GROUP BY, HAVING, ORDER BY, JOIN types?</li>
+<li>Primary key vs foreign key?</li>
+<li>What is an index?</li>
+<li>REST: what are the HTTP methods and status codes?</li>
+<li>PUT vs PATCH?</li>
+<li>What is JSON? What is an API?</li>
+<li>FastAPI vs Flask vs Django: when to use which?</li>
+</ol>
+<h2>Git and tools</h2>
+<ol>
+<li><code>git merge</code> vs <code>git rebase</code>?</li>
+<li>What is a pull request?</li>
+<li>How do you resolve a merge conflict?</li>
+<li>Basic Linux commands: <code>ls</code>, <code>cd</code>, <code>grep</code>, <code>cat</code>, <code>chmod</code>.</li>
+</ol>
+<h2>HR and behavioral</h2>
+<ol>
+<li>Tell me about yourself.</li>
+<li>Why Python / why IT?</li>
+<li>Describe your best project and the hardest bug.</li>
+<li>Strengths and weaknesses.</li>
+<li>Where do you see yourself in 3 years?</li>
+<li>How do you handle deadlines and pressure?</li>
+<li>Tell me about a time you worked in a team.</li>
+<li>Why should we hire you?</li>
+<li>Do you have any questions for us?</li>
+</ol>
+<p>Practice answering each <strong>out loud in English</strong> in 60-90 seconds. Record, review, repeat.</p><div class="done"><button class="btn alt" data-done="career-interview_questions">Mark as complete</button></div></section>
+<section class="page" id="p-career-job_search_plan" data-title="Job Search Plan" hidden><h1>Job Search Plan</h1>
+<h2>Where to look</h2>
+<ul>
+<li>Company career pages (many IT services and product companies hire freshers via their own portals)</li>
+<li>Job portals: LinkedIn, Naukri, Indeed, Instahyre, Wellfound (startups), Internshala (internships)</li>
+<li>Campus and off-campus drives, walk-ins, hackathons, local tech meetups</li>
+<li>Referrals: usually the highest-converting route</li>
+<li>Freelance and open-source: first real-world experience</li>
+</ul>
+<h2>Roles to target</h2>
+<p>Python Developer (Junior), Backend Developer, Automation/QA Engineer (Python), Data Analyst, Support/Application Engineer, DevOps Trainee, Technical Support Engineer.</p>
+<h2>Weekly targets</h2>
+<table>
+<thead>
+<tr>
+<th>Activity</th>
+<th>Target</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Applications (tailored)</td>
+<td>25-40</td>
+</tr>
+<tr>
+<td>Referral requests / networking messages</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Mock interviews</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Coding practice</td>
+<td>5 days</td>
+</tr>
+<tr>
+<td>LinkedIn posts</td>
+<td>1-2</td>
+</tr>
+<tr>
+<td>Follow-up emails</td>
+<td>After 5-7 days</td>
+</tr>
+</tbody>
+</table>
+<h2>Tracker (spreadsheet columns)</h2>
+<p>Company | Role | Link | Date applied | Referral? | Status | Next step | Notes</p>
+<h2>Interview process (typical)</h2>
+<ol>
+<li>Online test (aptitude / coding)</li>
+<li>Technical round (Python, SQL, project discussion)</li>
+<li>HR round (communication, expectations)</li>
+<li>Offer, documents, joining</li>
+</ol>
+<h2>Mindset</h2>
+<ul>
+<li>Rejections are normal. Review, fix, apply again.</li>
+<li>Each interview teaches you the market. Write down every question you couldn't answer, then learn it.</li>
+<li>Stay safe: <strong>never pay money for a job offer or "training deposit"</strong>. Genuine employers don't charge candidates.</li>
+</ul><div class="done"><button class="btn alt" data-done="career-job_search_plan">Mark as complete</button></div></section>
+<section class="page" id="p-career-resume_guide" data-title="One-Page Resume Guide (Fresher)" hidden><h1>One-Page Resume Guide (Fresher)</h1>
+<h2>Structure</h2>
+<ol>
+<li><strong>Header:</strong> Name, phone, email, city, GitHub, LinkedIn (no photo, no date of birth needed)</li>
+<li><strong>Summary (2 lines):</strong> "Python developer with hands-on experience in automation, REST APIs and data analysis. Built 6 projects (GitHub link)."</li>
+<li><strong>Skills:</strong> Python, FastAPI, SQL/SQLite, pandas, Git/GitHub, pytest, Linux basics, REST APIs</li>
+<li><strong>Projects (most important):</strong> 3-4 projects, 2-3 bullets each</li>
+<li><strong>Education:</strong> degree, college, year, CGPA/percentage</li>
+<li><strong>Certifications:</strong> PCEP, HackerRank badges, etc.</li>
+</ol>
+<h2>Project bullet formula</h2>
+<p><strong>Action verb + what you built + tech + result</strong>
+- "Built a REST API with FastAPI and SQLite supporting full CRUD; documented with OpenAPI and tested with pytest."
+- "Automated file sorting for 1,000+ files using pathlib and argparse, with a dry-run safety mode."
+- "Analyzed 480 sales records with pandas; identified top region and product, visualized monthly trends."</p>
+<h2>Rules</h2>
+<ul>
+<li>One page. PDF format. File name: <code>FirstName_LastName_Python_Developer.pdf</code>.</li>
+<li>Match keywords from the job description (honestly).</li>
+<li>No grammar mistakes: read it aloud and have a friend check it.</li>
+<li>Every link must open.</li>
+</ul><div class="done"><button class="btn alt" data-done="career-resume_guide">Mark as complete</button></div></section>
+<section class="page" id="p-tools-speaking_tracker" data-title="Speaking Practice Tracker" hidden><h1>Speaking Practice Tracker</h1><p>Logs your daily English practice and shows your streak. Save this as <code>speaking_tracker.py</code>, then run <code>python speaking_tracker.py log 20 "Shadowing"</code> and <code>python speaking_tracker.py stats</code>.</p><div class="fname">speaking_tracker.py</div><pre><code>&quot;&quot;&quot;Log daily English-speaking practice and see your streak.
+
+Usage:
+    python tools/speaking_tracker.py log 20 &quot;Shadowing + self intro&quot;
+    python tools/speaking_tracker.py stats
+&quot;&quot;&quot;
+import argparse
+import json
+from datetime import date, timedelta
+from pathlib import Path
+
+DB = Path(__file__).resolve().parent.parent / &quot;english&quot; / &quot;practice_log.json&quot;
+
+
+def load(path=DB):
+    try:
+        return json.loads(Path(path).read_text(encoding=&quot;utf-8&quot;))
+    except (FileNotFoundError, json.JSONDecodeError):
+        return []
+
+
+def save(entries, path=DB):
+    Path(path).write_text(json.dumps(entries, indent=2), encoding=&quot;utf-8&quot;)
+
+
+def log_entry(entries, minutes, note=&quot;&quot;, day=None):
+    if minutes &lt;= 0:
+        raise ValueError(&quot;minutes must be positive&quot;)
+    entries.append({&quot;date&quot;: (day or date.today()).isoformat(), &quot;minutes&quot;: minutes, &quot;note&quot;: note})
+    return entries
+
+
+def current_streak(entries, today=None):
+    today = today or date.today()
+    days = {e[&quot;date&quot;] for e in entries}
+    streak, d = 0, today
+    if d.isoformat() not in days:  # allow the streak to continue if today isn&#x27;t logged yet
+        d -= timedelta(days=1)
+    while d.isoformat() in days:
+        streak += 1
+        d -= timedelta(days=1)
+    return streak
+
+
+def stats(entries, today=None):
+    total = sum(e[&quot;minutes&quot;] for e in entries)
+    days = len({e[&quot;date&quot;] for e in entries})
+    return {
+        &quot;total_minutes&quot;: total,
+        &quot;days_practiced&quot;: days,
+        &quot;average_per_day&quot;: round(total / days, 1) if days else 0,
+        &quot;current_streak&quot;: current_streak(entries, today),
+    }
+
+
+def main():
+    p = argparse.ArgumentParser(description=&quot;English speaking practice tracker&quot;)
+    sub = p.add_subparsers(dest=&quot;cmd&quot;, required=True)
+    lg = sub.add_parser(&quot;log&quot;)
+    lg.add_argument(&quot;minutes&quot;, type=int)
+    lg.add_argument(&quot;note&quot;, nargs=&quot;?&quot;, default=&quot;&quot;)
+    sub.add_parser(&quot;stats&quot;)
+    args = p.parse_args()
+
+    entries = load()
+    if args.cmd == &quot;log&quot;:
+        try:
+            save(log_entry(entries, args.minutes, args.note))
+            print(&quot;Logged. Keep going!&quot;)
+        except ValueError as err:
+            print(&quot;Error:&quot;, err)
+    else:
+        for k, v in stats(entries).items():
+            print(f&quot;{k.replace(&#x27;_&#x27;, &#x27; &#x27;).title():&lt;20}{v}&quot;)
+
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre><div class="done"><button class="btn alt" data-done="tools-speaking_tracker">Mark as complete</button></div></section>
+<section class="page" id="p-tools-wpm_calculator" data-title="Words-per-Minute Calculator" hidden><h1>Words-per-Minute Calculator</h1><p>Checks your speaking pace against a script. Save as <code>wpm_calculator.py</code> and run <code>python wpm_calculator.py my_script.txt 90</code> (90 seconds). Aim for about 120-150 words per minute.</p><div class="fname">wpm_calculator.py</div><pre><code>&quot;&quot;&quot;Words-per-minute calculator for your presentation script.
+
+Usage:
+    python tools/wpm_calculator.py my_script.txt 90
+Target pace for clear presentations: about 120-150 WPM.
+&quot;&quot;&quot;
+import sys
+from pathlib import Path
+
+
+def words_per_minute(text, seconds):
+    if seconds &lt;= 0:
+        raise ValueError(&quot;seconds must be positive&quot;)
+    return round(len(text.split()) / (seconds / 60), 1)
+
+
+def pace_feedback(wpm):
+    if wpm &lt; 100:
+        return &quot;Slow: add energy, trim long pauses.&quot;
+    if wpm &lt;= 160:
+        return &quot;Good pace for presenting.&quot;
+    return &quot;Fast: slow down and pause after key points.&quot;
+
+
+def main():
+    if len(sys.argv) != 3:
+        print(__doc__)
+        return
+    text = Path(sys.argv[1]).read_text(encoding=&quot;utf-8&quot;)
+    wpm = words_per_minute(text, float(sys.argv[2]))
+    print(f&quot;{wpm} words per minute. {pace_feedback(wpm)}&quot;)
+
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre><div class="done"><button class="btn alt" data-done="tools-wpm_calculator">Mark as complete</button></div></section>
+<div class="pn" id="pn"></div>
+<footer>Practice daily, speak daily, build daily.</footer>
+</main>
 </div>
+<script>
+(function(){
+var pages=[].slice.call(document.querySelectorAll('.page'));
+var links=[].slice.call(document.querySelectorAll('a.nl'));
+var order=links.map(function(a){return a.dataset.id});
+var side=document.getElementById('side');
+var done={};
+try{done=JSON.parse(localStorage.getItem('pzh-done')||'{}')}catch(e){}
+function paint(){links.forEach(function(a){a.classList.toggle('ok',!!done[a.dataset.id])});
+ [].forEach.call(document.querySelectorAll('[data-done]'),function(b){b.textContent=done[b.dataset.done]?'Completed (click to undo)':'Mark as complete'})}
+function show(){
+ var id=location.hash.slice(1)||'home';
+ if(!document.getElementById('p-'+id))id='home';
+ pages.forEach(function(p){p.hidden=p.id!=='p-'+id});
+ links.forEach(function(a){a.classList.toggle('on',a.dataset.id===id)});
+ var cur=links.filter(function(a){return a.dataset.id===id})[0];
+ if(cur){var d=cur.closest('details');if(d)d.open=true}
+ var pg=document.getElementById('p-'+id);
+ document.title=(id==='home'?'':pg.dataset.title+' | ')+'Python Zero to Hero';
+ var i=order.indexOf(id),pn=document.getElementById('pn'),h='';
+ function lab(j){return links[j].textContent}
+ if(i>0)h+='<a class="btn alt" href="#'+order[i-1]+'">&larr; '+lab(i-1)+'</a>';else h+='<span></span>';
+ if(i<order.length-1)h+='<a class="btn" href="#'+order[i+1]+'">'+lab(i+1)+' &rarr;</a>';
+ pn.innerHTML=h;
+ side.classList.remove('open');window.scrollTo(0,0);
+}
+window.addEventListener('hashchange',show);
+document.getElementById('menu').onclick=function(){side.classList.toggle('open')};
+document.addEventListener('click',function(e){
+ var t=e.target;
+ if(t.dataset&&t.dataset.done){var k=t.dataset.done;done[k]=!done[k];try{localStorage.setItem('pzh-done',JSON.stringify(done))}catch(x){}paint()}
+ if(t.classList&&t.classList.contains('cp')){var txt=t.parentNode.querySelector('code').innerText;
+  var ok=function(){t.textContent='Copied!';setTimeout(function(){t.textContent='Copy'},1200)};
+  if(navigator.clipboard){navigator.clipboard.writeText(txt).then(ok)}else{var ta=document.createElement('textarea');ta.value=txt;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');ok()}catch(x){}document.body.removeChild(ta)}}
+});
+[].forEach.call(document.querySelectorAll('pre'),function(p){var b=document.createElement('button');b.className='cp';b.textContent='Copy';p.appendChild(b)});
+document.getElementById('q').addEventListener('input',function(){
+ var v=this.value.toLowerCase().trim();
+ links.forEach(function(a){if(a.dataset.id==='home')return;var li=a.parentNode;li.style.display=(!v||a.textContent.toLowerCase().indexOf(v)>-1)?'':'none'});
+ [].forEach.call(document.querySelectorAll('details[data-g]'),function(d){if(v)d.open=true});
+});
+paint();show();
+})();
+</script>
 </body>
 </html>
