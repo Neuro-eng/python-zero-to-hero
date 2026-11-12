@@ -1,0 +1,6 @@
+2026-01-10 09:00:01 INFO Server started
+2026-01-10 09:05:12 ERROR Database connection failed
+2026-01-10 09:05:20 WARNING Retrying connection
+2026-01-10 09:06:00 ERROR Database connection failed
+2026-01-10 09:10:45 INFO Request served
+2026-01-10 09:12:00 ERROR Timeout while calling payment API
