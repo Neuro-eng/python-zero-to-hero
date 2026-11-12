@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Python Zero to Hero + Professional English for IT Careers</title>
+<style>
+:root{--bg:#ffffff;--card:#f5f7fb;--text:#1b2430;--muted:#5b6778;--accent:#2563eb;--border:#dde3ee}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1520;--card:#18212f;--text:#e8edf5;--muted:#9aa7b8;--accent:#6ea8ff;--border:#2a3548}}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+.wrap{max-width:980px;margin:0 auto;padding:0 20px}
+header{padding:56px 0 32px;text-align:center}
+h1{font-size:clamp(1.8rem,5vw,2.8rem);margin:0 0 12px;line-height:1.2}
+header p{color:var(--muted);font-size:1.1rem;max-width:640px;margin:0 auto 24px}
+.btn{display:inline-block;padding:10px 20px;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;margin:4px}
+.btn.alt{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+h2{margin:40px 0 16px;font-size:1.5rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px}
+.card h3{margin:0 0 8px;font-size:1.05rem}
+.card p{margin:0 0 10px;color:var(--muted);font-size:.95rem}
+.card a{color:var(--accent);text-decoration:none;font-weight:600;font-size:.95rem}
+.card a:hover{text-decoration:underline}
+.table-wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:520px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--border);font-size:.95rem}
+th{color:var(--muted);font-weight:600}
+pre{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:16px;overflow-x:auto;font-size:.9rem}
+footer{padding:40px 0;text-align:center;color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Python Zero to Hero<br>+ Professional English for IT Careers</h1>
+  <p>A free, hands-on roadmap: from no coding experience to a job-ready Python developer, with fluent spoken English and presentation skills for interviews and meetings.</p>
+  <a class="btn" href="https://github.com/Neuro-eng/python-zero-to-hero">View on GitHub</a>
+  <a class="btn alt" href="#start">Quick start</a>
+</header>
+
+<h2>What you get</h2>
+<div class="grid">
+  <div class="card"><h3>12 Python modules</h3><p>Basics to FastAPI and SQL, with examples, exercises and tested solutions.</p><a href="https://github.com/Neuro-eng/python-zero-to-hero/tree/main/modules">Open modules</a></div>
+  <div class="card"><h3>6 portfolio projects</h3><p>Expense tracker, log analyzer, file organizer, API client, sales analysis, to-do REST API.</p><a href="https://github.com/Neuro-eng/python-zero-to-hero/tree/main/projects">Open projects</a></div>
+  <div class="card"><h3>Spoken English</h3><p>90-day plan, presentation framework, phrase bank, interview answers and scripts.</p><a href="https://github.com/Neuro-eng/python-zero-to-hero/tree/main/english">Open English section</a></div>
+  <div class="card"><h3>Career toolkit</h3><p>Resume guide, GitHub and LinkedIn tips, job-search plan, 50 interview questions.</p><a href="https://github.com/Neuro-eng/python-zero-to-hero/tree/main/career">Open career kit</a></div>
+  <div class="card"><h3>Practice tools</h3><p>Speaking-practice tracker and words-per-minute calculator.</p><a href="https://github.com/Neuro-eng/python-zero-to-hero/tree/main/tools">Open tools</a></div>
+  <div class="card"><h3>16-week roadmap</h3><p>Week-by-week plan, plus a certification guide (PCEP, PCAP and more).</p><a href="https://github.com/Neuro-eng/python-zero-to-hero/blob/main/docs/roadmap.md">Read roadmap</a></div>
+</div>
+
+<h2>Daily routine (about 2 hours)</h2>
+<div class="table-wrap">
+<table>
+  <tr><th>Time</th><th>Activity</th></tr>
+  <tr><td>60 min</td><td>Python: read the lesson, type the examples, do the exercises</td></tr>
+  <tr><td>30 min</td><td>Project work or coding practice</td></tr>
+  <tr><td>20 min</td><td>English: shadowing and speaking aloud</td></tr>
+  <tr><td>10 min</td><td>Log progress and make a git commit</td></tr>
+</table>
+</div>
+
+<h2 id="start">Quick start</h2>
+<pre><code>git clone https://github.com/Neuro-eng/python-zero-to-hero.git
+cd python-zero-to-hero
+python -m venv .venv
+source .venv/bin/activate        # Windows: .venv\Scripts\activate
+pip install -r requirements.txt
+python modules/01_basics/examples.py
+pytest -q</code></pre>
+
+<footer>MIT licensed. Built for learners targeting IT hub jobs and remote roles.</footer>
+</div>
+</body>
+</html>
