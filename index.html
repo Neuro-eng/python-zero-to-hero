@@ -25,6 +25,11 @@ aside summary{cursor:pointer;font-weight:600;padding:6px 4px;color:var(--muted);
 .nl.on{background:var(--accent);color:#fff}
 .nl.ok::after{content:" \2713";color:#16a34a;font-weight:700}
 .nl.on.ok::after{color:#fff}
+.nl.due::after{content:" \21BB Review";color:#d97706;font-weight:700;font-size:.8rem}
+.nl.on.due::after{color:#fff}
+.rem{border:1px solid var(--border);border-left:4px solid #16a34a;background:var(--card);border-radius:10px;padding:10px 16px;margin:14px 0}
+.rem ul{margin:6px 0 0;padding-left:20px}
+.duebox{border:1px solid #d97706;background:var(--card);border-radius:10px;padding:12px 16px;margin:18px 0}
 main{flex:1;min-width:0;padding:32px 28px 60px}
 .page{max-width:820px;margin:0 auto}
 h1{font-size:clamp(1.6rem,4vw,2.2rem);line-height:1.25;margin:0 0 16px}
@@ -68,7 +73,7 @@ footer{max-width:820px;margin:30px auto 0;color:var(--muted);font-size:.85rem;te
 <a class="brand" href="#home">Python Zero to Hero<br><small style="font-weight:400;color:var(--muted)">+ English for IT careers</small></a>
 <input id="q" type="search" placeholder="Search lessons...">
 <a class="nl" href="#home" data-id="home">Home</a>
-<details data-g><summary>Start Here</summary><ul><li><a class="nl" href="#docs-roadmap" data-id="docs-roadmap">16-Week Roadmap: Zero to Job-Ready</a></li><li><a class="nl" href="#docs-certifications" data-id="docs-certifications">Python and IT Certifications: Options</a></li></ul></details>
+<details data-g><summary>Start Here</summary><ul><li><a class="nl" href="#docs-how_to_remember" data-id="docs-how_to_remember">How to Remember What You Learn</a></li><li><a class="nl" href="#docs-roadmap" data-id="docs-roadmap">16-Week Roadmap: Zero to Job-Ready</a></li><li><a class="nl" href="#docs-glossary" data-id="docs-glossary">Words Made Easy</a></li><li><a class="nl" href="#docs-cheatsheet" data-id="docs-cheatsheet">One-Page Cheat Sheet</a></li><li><a class="nl" href="#docs-certifications" data-id="docs-certifications">Python and IT Certifications: Options</a></li></ul></details>
 <details data-g><summary>Python Modules</summary><ul><li><a class="nl" href="#modules-01_basics" data-id="modules-01_basics">Module 01: Basics</a></li><li><a class="nl" href="#modules-02_control_flow" data-id="modules-02_control_flow">Module 02: Control Flow</a></li><li><a class="nl" href="#modules-03_functions" data-id="modules-03_functions">Module 03: Functions</a></li><li><a class="nl" href="#modules-04_data_structures" data-id="modules-04_data_structures">Module 04: Data Structures</a></li><li><a class="nl" href="#modules-04a_core_concepts" data-id="modules-04a_core_concepts">Module 4B: Core Concepts Supplement</a></li><li><a class="nl" href="#modules-05_oop" data-id="modules-05_oop">Module 05: Object-Oriented Programming</a></li><li><a class="nl" href="#modules-06_files_and_errors" data-id="modules-06_files_and_errors">Module 06: Files and Error Handling</a></li><li><a class="nl" href="#modules-07_modules_venv_git" data-id="modules-07_modules_venv_git">Module 07: Modules, Virtual Environments, Git and GitHub</a></li><li><a class="nl" href="#modules-08_automation" data-id="modules-08_automation">Module 08: Automation with the Standard Library</a></li><li><a class="nl" href="#modules-09_testing_debugging" data-id="modules-09_testing_debugging">Module 09: Testing and Debugging</a></li><li><a class="nl" href="#modules-10_web_and_apis" data-id="modules-10_web_and_apis">Module 10: Web and APIs</a></li><li><a class="nl" href="#modules-11_data_analysis" data-id="modules-11_data_analysis">Module 11: Data Analysis with pandas</a></li><li><a class="nl" href="#modules-12_fastapi_and_sql" data-id="modules-12_fastapi_and_sql">Module 12: FastAPI and SQL</a></li><li><a class="nl" href="#modules-13_advanced_python" data-id="modules-13_advanced_python">Module 13: Advanced Python</a></li><li><a class="nl" href="#modules-14_professional_python" data-id="modules-14_professional_python">Module 14: Professional Python Development</a></li><li><a class="nl" href="#modules-15_advanced_databases" data-id="modules-15_advanced_databases">Module 15: Advanced Database Development</a></li><li><a class="nl" href="#modules-16_advanced_backend" data-id="modules-16_advanced_backend">Module 16: Advanced Backend Development</a></li><li><a class="nl" href="#modules-17_deployment_devops" data-id="modules-17_deployment_devops">Module 17: Deployment and DevOps</a></li></ul></details>
 <details data-g><summary>Portfolio Projects</summary><ul><li><a class="nl" href="#projects-01_expense_tracker" data-id="projects-01_expense_tracker">Project 1: Expense Tracker (CLI)</a></li><li><a class="nl" href="#projects-02_log_analyzer" data-id="projects-02_log_analyzer">Project 2: Log Analyzer</a></li><li><a class="nl" href="#projects-03_file_organizer" data-id="projects-03_file_organizer">Project 3: File Organizer</a></li><li><a class="nl" href="#projects-04_api_client" data-id="projects-04_api_client">Project 4: API Client</a></li><li><a class="nl" href="#projects-05_sales_analysis" data-id="projects-05_sales_analysis">Project 5: Sales Analysis</a></li><li><a class="nl" href="#projects-06_todo_api" data-id="projects-06_todo_api">Project 6: To-do REST API (FastAPI + SQLite)</a></li></ul></details>
 <details data-g><summary>Spoken English</summary><ul><li><a class="nl" href="#english-README" data-id="english-README">Spoken English and Presentation Skills for IT Careers</a></li><li><a class="nl" href="#english-90_day_plan" data-id="english-90_day_plan">90-Day Spoken English Plan</a></li><li><a class="nl" href="#english-daily_routine" data-id="english-daily_routine">30-Minute Daily Routine</a></li><li><a class="nl" href="#english-fluency_techniques" data-id="english-fluency_techniques">Fluency Techniques</a></li><li><a class="nl" href="#english-interview_english" data-id="english-interview_english">Interview English: Structures and Sample Answers</a></li><li><a class="nl" href="#english-phrase_bank" data-id="english-phrase_bank">Phrase Bank for Meetings and Presentations</a></li><li><a class="nl" href="#english-presentation_framework" data-id="english-presentation_framework">How to Present in English (Fluent and Clear)</a></li><li><a class="nl" href="#english-self_review_checklist" data-id="english-self_review_checklist">Self-Review Checklist for Recordings</a></li><li><a class="nl" href="#english-tech_vocabulary" data-id="english-tech_vocabulary">IT Vocabulary: Say It Correctly</a></li><li><a class="nl" href="#english-script-incident_update" data-id="english-script-incident_update">Script: Explaining a Problem or Incident</a></li><li><a class="nl" href="#english-script-meeting_phrases" data-id="english-script-meeting_phrases">Script: Speaking Up in Meetings</a></li><li><a class="nl" href="#english-script-project_demo" data-id="english-script-project_demo">Script: Project Demo (3 minutes)</a></li><li><a class="nl" href="#english-script-self_introduction" data-id="english-script-self_introduction">Script: Self-Introduction (60 seconds)</a></li><li><a class="nl" href="#english-script-standup_update" data-id="english-script-standup_update">Script: Daily Stand-up (30 seconds)</a></li></ul></details>
@@ -79,10 +84,12 @@ footer{max-width:820px;margin:30px auto 0;color:var(--muted);font-size:.85rem;te
 <section class="page" id="p-home" hidden>
 <div class="hero">
   <h1>Python Zero to Hero<br>+ Professional English for IT Careers</h1>
-  <p>A free, hands-on course: from no coding experience to a job-ready Python developer, with fluent spoken English and presentation skills for interviews and meetings.</p>
+  <p>A free course in simple words. Start from zero, learn Python step by step, and get ready for a job. You will also practise speaking English for interviews and meetings.</p>
+  <a class="btn" href="#docs-how_to_remember">Learn how to remember</a>
   <a class="btn" href="#modules-01_basics">Start learning</a>
   <a class="btn alt" href="#docs-roadmap">See the 16-week roadmap</a>
 </div>
+<div id="due"></div>
 <h2>What you get</h2>
 <div class="grid">
   <a class="card" href="#modules-01_basics"><h3>18 Python modules</h3><p>Basics to advanced Python, databases, FastAPI and deployment, with examples, exercises and interview questions.</p></a>
@@ -90,6 +97,7 @@ footer{max-width:820px;margin:30px auto 0;color:var(--muted);font-size:.85rem;te
   <a class="card" href="#english-README"><h3>Spoken English</h3><p>90-day plan, presentation framework, phrase bank, interview answers, scripts.</p></a>
   <a class="card" href="#career-README"><h3>Career toolkit</h3><p>Resume guide, LinkedIn tips, job-search plan, 50 interview questions.</p></a>
   <a class="card" href="#tools-speaking_tracker"><h3>Practice tools</h3><p>Speaking tracker and words-per-minute calculator you can run yourself.</p></a>
+  <a class="card" href="#docs-glossary"><h3>Words made easy</h3><p>Simple meanings of Python words, plus a one-page cheat sheet.</p></a>
   <a class="card" href="#docs-certifications"><h3>Certifications</h3><p>PCEP, PCAP and other options, in a sensible order.</p></a>
 </div>
 <h2>Daily routine (about 2 hours)</h2>
@@ -115,6 +123,67 @@ footer{max-width:820px;margin:30px auto 0;color:var(--muted);font-size:.85rem;te
 <li><b>Explain what you learn</b> out loud in English: it is revision and speaking practice together.</li>
 </ol>
 </section>
+<section class="page" id="p-docs-how_to_remember" data-title="How to Remember What You Learn" hidden><h1>How to Remember What You Learn</h1>
+<p>Reading is not learning. <strong>Using</strong> what you read is learning. Follow these five simple rules.</p>
+<h2>The 5 rules</h2>
+<ol>
+<li><strong>Test yourself.</strong> Close the page. Write the code from memory. If you get stuck, peek, then try again. This is the best way to remember.</li>
+<li><strong>Review on a schedule.</strong> Look at each lesson again after <strong>1, 3, 7, 14 and 30 days.</strong> This site helps you: tick "Mark as complete", and it will show a <strong>↻ Review</strong> reminder on the day you should look again.</li>
+<li><strong>Explain it in simple words.</strong> Say it out loud in English, as if teaching a friend. If you cannot explain it, you do not know it yet. This also improves your speaking.</li>
+<li><strong>Keep a mistake notebook.</strong> For every error write three lines: <em>What happened. Why. How I fixed it.</em> Mistakes you write down are mistakes you do not repeat.</li>
+<li><strong>Build something small.</strong> After each module, make one tiny program with no help. Building makes memory strong.</li>
+</ol>
+<h2>Your simple week</h2>
+<table>
+<thead>
+<tr>
+<th>Day</th>
+<th>What to do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mon-Thu</td>
+<td>Learn one new topic. Type the examples. Do the practice.</td>
+</tr>
+<tr>
+<td>Fri</td>
+<td>Review: redo old exercises from memory.</td>
+</tr>
+<tr>
+<td>Sat</td>
+<td>Build a small project or fix an old one.</td>
+</tr>
+<tr>
+<td>Sun</td>
+<td>Rest, or watch one short tech talk in English.</td>
+</tr>
+</tbody>
+</table>
+<h2>The growth ladder</h2>
+<p>Move up one step at a time.</p>
+<ol>
+<li><strong>Follow:</strong> type the lesson code exactly.</li>
+<li><strong>Change:</strong> change the code and predict what happens.</li>
+<li><strong>Build alone:</strong> solve a new problem without looking.</li>
+<li><strong>Explain:</strong> teach it to someone, in English.</li>
+<li><strong>Get feedback:</strong> share code, ask for review, improve it.</li>
+</ol>
+<h2>When you are stuck</h2>
+<ul>
+<li>Wait 15 minutes. Try. Read the error from the <strong>bottom line up</strong>.</li>
+<li>Print values to see what is really happening.</li>
+<li>Write the problem in one sentence. Often the answer appears.</li>
+<li>Still stuck? Search the error message, then ask a friend or an online community, showing your code and the error.</li>
+</ul>
+<h2>Monthly check</h2>
+<ul>
+<li>Can I write a loop, a function and a class from memory?</li>
+<li>Did I finish one small project this month?</li>
+<li>Did I speak English for at least 10 minutes on most days?</li>
+<li>Did I review old lessons when the ↻ reminder appeared?</li>
+</ul>
+<p>Small steps every day beat big efforts once a week.</p><div class="done"><button class="btn alt" data-done="docs-how_to_remember">Mark as complete</button></div></section>
 <section class="page" id="p-docs-roadmap" data-title="16-Week Roadmap: Zero to Job-Ready" hidden><h1>16-Week Roadmap: Zero to Job-Ready</h1>
 <p>Assumes about 2 hours per day, 6 days per week. Take 1 rest day.</p>
 <table>
@@ -275,6 +344,227 @@ footer{max-width:820px;margin:30px auto 0;color:var(--muted);font-size:.85rem;te
 </tbody>
 </table>
 <p><strong>Per-topic study method:</strong> read the concept, type 5 examples, solve the 10 practice questions yourself, answer the interview questions out loud in English, then build the mini-project. Read solutions only after you try.</p><div class="done"><button class="btn alt" data-done="docs-roadmap">Mark as complete</button></div></section>
+<section class="page" id="p-docs-glossary" data-title="Words Made Easy" hidden><h1>Words Made Easy</h1>
+<p>Simple meanings of words you will meet again and again.</p>
+<table>
+<thead>
+<tr>
+<th>Word</th>
+<th>Simple meaning</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Variable</td>
+<td>A name tag on a value</td>
+<td><code>age = 22</code></td>
+</tr>
+<tr>
+<td>String</td>
+<td>Text</td>
+<td><code>"hello"</code></td>
+</tr>
+<tr>
+<td>Integer</td>
+<td>Whole number</td>
+<td><code>7</code></td>
+</tr>
+<tr>
+<td>Float</td>
+<td>Number with a decimal point</td>
+<td><code>3.14</code></td>
+</tr>
+<tr>
+<td>Boolean</td>
+<td>True or False</td>
+<td><code>is_ready = True</code></td>
+</tr>
+<tr>
+<td>List</td>
+<td>Ordered items you can change</td>
+<td><code>[1, 2, 3]</code></td>
+</tr>
+<tr>
+<td>Tuple</td>
+<td>Ordered items you cannot change</td>
+<td><code>(10, 20)</code></td>
+</tr>
+<tr>
+<td>Set</td>
+<td>Unique items, no order</td>
+<td><code>{1, 2, 3}</code></td>
+</tr>
+<tr>
+<td>Dictionary</td>
+<td>Pairs of key and value, like a phone book</td>
+<td><code>{"name": "Asha"}</code></td>
+</tr>
+<tr>
+<td>Loop</td>
+<td>Repeat steps</td>
+<td><code>for x in items:</code></td>
+</tr>
+<tr>
+<td>Function</td>
+<td>A reusable set of steps</td>
+<td><code>def add(a, b):</code></td>
+</tr>
+<tr>
+<td>Parameter</td>
+<td>A value you give to a function</td>
+<td><code>a</code> and <code>b</code> above</td>
+</tr>
+<tr>
+<td>Return</td>
+<td>The answer a function gives back</td>
+<td><code>return a + b</code></td>
+</tr>
+<tr>
+<td>Class</td>
+<td>A blueprint for objects</td>
+<td><code>class Dog:</code></td>
+</tr>
+<tr>
+<td>Object</td>
+<td>One thing made from a class</td>
+<td><code>Dog("Bruno")</code></td>
+</tr>
+<tr>
+<td>Module</td>
+<td>A Python file you can reuse</td>
+<td><code>import math</code></td>
+</tr>
+<tr>
+<td>Library</td>
+<td>A box of ready-made tools</td>
+<td><code>pandas</code>, <code>requests</code></td>
+</tr>
+<tr>
+<td>Exception</td>
+<td>An error that happens while running</td>
+<td><code>ZeroDivisionError</code></td>
+</tr>
+<tr>
+<td>Bug</td>
+<td>A mistake in code</td>
+<td>A wrong result</td>
+</tr>
+<tr>
+<td>Debug</td>
+<td>Find and fix a bug</td>
+<td>Use <code>print</code> or a debugger</td>
+</tr>
+<tr>
+<td>API</td>
+<td>A way for programs to talk to each other</td>
+<td>A weather service</td>
+</tr>
+<tr>
+<td>JSON</td>
+<td>A simple text format for data</td>
+<td><code>{"temp": 30}</code></td>
+</tr>
+<tr>
+<td>Database</td>
+<td>A place that stores data safely</td>
+<td>SQLite, PostgreSQL</td>
+</tr>
+<tr>
+<td>Git</td>
+<td>A tool that saves versions of your code</td>
+<td><code>git commit</code></td>
+</tr>
+<tr>
+<td>Repository</td>
+<td>A project folder tracked by Git</td>
+<td>Your GitHub project</td>
+</tr>
+<tr>
+<td>Virtual environment</td>
+<td>A private box of libraries for one project</td>
+<td><code>.venv</code></td>
+</tr>
+<tr>
+<td>Test</td>
+<td>Code that checks other code</td>
+<td><code>assert add(2, 2) == 4</code></td>
+</tr>
+<tr>
+<td>Deploy</td>
+<td>Put your app on the internet</td>
+<td>Render, Railway</td>
+</tr>
+<tr>
+<td>Container</td>
+<td>An app packed with everything it needs</td>
+<td>Docker</td>
+</tr>
+</tbody>
+</table><div class="done"><button class="btn alt" data-done="docs-glossary">Mark as complete</button></div></section>
+<section class="page" id="p-docs-cheatsheet" data-title="One-Page Cheat Sheet" hidden><h1>One-Page Cheat Sheet</h1>
+<p>Read it, then close it and write it from memory.</p>
+<pre><code class="language-python"># Basics
+name, age = &quot;Asha&quot;, 22
+print(f&quot;{name} is {age}&quot;)
+n = int(input(&quot;Number: &quot;))
+
+# Choose
+if n &gt; 0:
+    print(&quot;positive&quot;)
+elif n == 0:
+    print(&quot;zero&quot;)
+else:
+    print(&quot;negative&quot;)
+
+# Repeat
+for i in range(3):              # 0, 1, 2
+    print(i)
+while n &gt; 0:
+    n -= 1
+
+# Function
+def add(a, b=0):
+    return a + b
+
+# Collections
+nums = [3, 1, 2]
+nums.append(4); nums.sort()
+squares = [x * x for x in nums if x &gt; 1]
+person = {&quot;name&quot;: &quot;Asha&quot;, &quot;age&quot;: 22}
+person[&quot;city&quot;] = &quot;Delhi&quot;
+for key, value in person.items():
+    print(key, value)
+unique = set([1, 1, 2])
+
+# Class
+class Dog:
+    def __init__(self, name):
+        self.name = name
+    def speak(self):
+        return f&quot;{self.name} says woof&quot;
+
+# Files and errors
+try:
+    with open(&quot;data.txt&quot;) as f:
+        text = f.read()
+except FileNotFoundError:
+    text = &quot;&quot;
+
+# JSON
+import json
+data = json.loads('{&quot;a&quot;: 1}')
+print(json.dumps(data, indent=2))
+</code></pre>
+<h2>Memory tricks</h2>
+<ul>
+<li><strong>Git save steps:</strong> Add, Commit, Push (A-C-P).</li>
+<li><strong>Loops:</strong> <code>for</code> = I know how many times. <code>while</code> = I stop when something happens.</li>
+<li><strong>Mutable:</strong> pencil (you can erase). <strong>Immutable:</strong> pen (you cannot).</li>
+<li><strong>HTTP:</strong> GET = read, POST = create, PUT = replace, DELETE = remove.</li>
+<li><strong>STAR answer:</strong> Situation, Task, Action, Result.</li>
+<li><strong>PREP answer:</strong> Point, Reason, Example, Point.</li>
+</ul><div class="done"><button class="btn alt" data-done="docs-cheatsheet">Mark as complete</button></div></section>
 <section class="page" id="p-docs-certifications" data-title="Python and IT Certifications: Options" hidden><h1>Python and IT Certifications: Options</h1>
 <p>Certifications help freshers who lack experience, but <strong>projects + GitHub matter more</strong> to most recruiters.
 Prices, exam codes and formats change often, so always verify on the official site before paying.</p>
@@ -338,7 +628,7 @@ Prices, exam codes and formats change often, so always verify on the official si
 <h2>English certifications (optional)</h2>
 <p>IELTS, PTE, TOEFL or Cambridge exams matter for study or work abroad. For Indian IT jobs, a clear
 spoken-English demo in the interview usually matters more than a score.</p><div class="done"><button class="btn alt" data-done="docs-certifications">Mark as complete</button></div></section>
-<section class="page" id="p-modules-01_basics" data-title="Module 01: Basics" hidden><h1>Module 01: Basics</h1>
+<section class="page" id="p-modules-01_basics" data-title="Module 01: Basics" hidden><h1>Module 01: Basics</h1><div class="rem"><b>Remember it</b><ul><li><b>In one line:</b> A variable is a labelled box that holds a value.</li><li><b>Think of it like:</b> a name tag on a box.</li><li><b>Don't forget:</b> <code>=</code> stores a value. <code>==</code> compares two values.</li></ul></div>
 <p><strong>Goal:</strong> write and run simple programs.</p>
 <h2>Concepts</h2>
 <ul>
@@ -384,7 +674,7 @@ def swap(a, b):
 def is_even(n):
     return n % 2 == 0
 </code></pre></details><div class="done"><button class="btn alt" data-done="modules-01_basics">Mark as complete</button></div></section>
-<section class="page" id="p-modules-02_control_flow" data-title="Module 02: Control Flow" hidden><h1>Module 02: Control Flow</h1>
+<section class="page" id="p-modules-02_control_flow" data-title="Module 02: Control Flow" hidden><h1>Module 02: Control Flow</h1><div class="rem"><b>Remember it</b><ul><li><b>In one line:</b> <code>if</code> chooses a path. A loop repeats steps.</li><li><b>Think of it like:</b> a traffic signal (choose) and a washing machine cycle (repeat).</li><li><b>Don't forget:</b> Every loop needs a way to stop. Indentation is part of the code.</li></ul></div>
 <h2>Concepts</h2>
 <ul>
 <li><code>if / elif / else</code></li>
@@ -442,7 +732,7 @@ def is_prime(n):
 def digit_sum(n):
     return sum(int(d) for d in str(abs(n)))
 </code></pre></details><div class="done"><button class="btn alt" data-done="modules-02_control_flow">Mark as complete</button></div></section>
-<section class="page" id="p-modules-03_functions" data-title="Module 03: Functions" hidden><h1>Module 03: Functions</h1>
+<section class="page" id="p-modules-03_functions" data-title="Module 03: Functions" hidden><h1>Module 03: Functions</h1><div class="rem"><b>Remember it</b><ul><li><b>In one line:</b> A function is a small machine: input goes in, a result comes out.</li><li><b>Think of it like:</b> a coffee machine.</li><li><b>Don't forget:</b> <code>return</code> gives the answer back. <code>print</code> only shows it on screen.</li></ul></div>
 <h2>Concepts</h2>
 <ul>
 <li><code>def</code>, parameters, return values</li>
@@ -507,7 +797,7 @@ def generate_password(length=12):
     chars = string.ascii_letters + string.digits + &quot;!@#$%^&amp;*&quot;
     return &quot;&quot;.join(random.choice(chars) for _ in range(length))
 </code></pre></details><div class="done"><button class="btn alt" data-done="modules-03_functions">Mark as complete</button></div></section>
-<section class="page" id="p-modules-04_data_structures" data-title="Module 04: Data Structures" hidden><h1>Module 04: Data Structures</h1>
+<section class="page" id="p-modules-04_data_structures" data-title="Module 04: Data Structures" hidden><h1>Module 04: Data Structures</h1><div class="rem"><b>Remember it</b><ul><li><b>In one line:</b> Pick the box that fits the job.</li><li><b>Think of it like:</b> list = shopping list, tuple = date of birth (fixed), set = unique stamps, dict = phone book.</li><li><b>Don't forget:</b> Dictionaries find values by key, not by position.</li></ul></div>
 <h2>Concepts</h2>
 <ul>
 <li><code>list</code>, <code>tuple</code>, <code>set</code>, <code>dict</code></li>
@@ -572,7 +862,7 @@ def two_sum(nums, target):
         seen[n] = i
     return []
 </code></pre></details><div class="done"><button class="btn alt" data-done="modules-04_data_structures">Mark as complete</button></div></section>
-<section class="page" id="p-modules-04a_core_concepts" data-title="Module 4B: Core Concepts Supplement" hidden><h1>Module 4B: Core Concepts Supplement</h1>
+<section class="page" id="p-modules-04a_core_concepts" data-title="Module 4B: Core Concepts Supplement" hidden><h1>Module 4B: Core Concepts Supplement</h1><div class="rem"><b>Remember it</b><ul><li><b>In one line:</b> Some things can change after you make them. Some cannot.</li><li><b>Think of it like:</b> mutable = pencil, immutable = pen.</li><li><b>Don't forget:</b> <code>b = a</code> does not copy a list. Both names point to the same list.</li></ul></div>
 <p>Fills the gaps beginners hit in interviews: mutability, scope, truthiness, strings, copying, complexity.</p>
 <h2>Concepts</h2>
 <ul>
@@ -659,7 +949,7 @@ t = time.perf_counter(); 99_999 in data; t1 = time.perf_counter() - t
 t = time.perf_counter(); 99_999 in lookup; t2 = time.perf_counter() - t
 print(f&quot;list: {t1:.6f}s  set: {t2:.6f}s&quot;)
 </code></pre><div class="done"><button class="btn alt" data-done="modules-04a_core_concepts">Mark as complete</button></div></section>
-<section class="page" id="p-modules-05_oop" data-title="Module 05: Object-Oriented Programming" hidden><h1>Module 05: Object-Oriented Programming</h1>
+<section class="page" id="p-modules-05_oop" data-title="Module 05: Object-Oriented Programming" hidden><h1>Module 05: Object-Oriented Programming</h1><div class="rem"><b>Remember it</b><ul><li><b>In one line:</b> A class is a blueprint. An object is a thing built from it.</li><li><b>Think of it like:</b> a house plan and the houses built from it.</li><li><b>Don't forget:</b> <code>self</code> means this object.</li></ul></div>
 <h2>Concepts</h2>
 <ul>
 <li>Classes, objects, <code>__init__</code>, <code>self</code></li>
@@ -743,7 +1033,7 @@ class Rectangle(Shape):
     def area(self):
         return self.w * self.h
 </code></pre></details><div class="done"><button class="btn alt" data-done="modules-05_oop">Mark as complete</button></div></section>
-<section class="page" id="p-modules-06_files_and_errors" data-title="Module 06: Files and Error Handling" hidden><h1>Module 06: Files and Error Handling</h1>
+<section class="page" id="p-modules-06_files_and_errors" data-title="Module 06: Files and Error Handling" hidden><h1>Module 06: Files and Error Handling</h1><div class="rem"><b>Remember it</b><ul><li><b>In one line:</b> Open a file, use it, close it. <code>with</code> closes it for you.</li><li><b>Think of it like:</b> opening and closing a door.</li><li><b>Don't forget:</b> Expect things to go wrong: use <code>try / except</code>.</li></ul></div>
 <h2>Concepts</h2>
 <ul>
 <li><code>open()</code>, <code>with</code> statement, modes <code>r w a</code></li>
@@ -802,7 +1092,7 @@ def safe_int(value, default=0):
     except (ValueError, TypeError):
         return default
 </code></pre></details><div class="done"><button class="btn alt" data-done="modules-06_files_and_errors">Mark as complete</button></div></section>
-<section class="page" id="p-modules-07_modules_venv_git" data-title="Module 07: Modules, Virtual Environments, Git and GitHub" hidden><h1>Module 07: Modules, Virtual Environments, Git and GitHub</h1>
+<section class="page" id="p-modules-07_modules_venv_git" data-title="Module 07: Modules, Virtual Environments, Git and GitHub" hidden><h1>Module 07: Modules, Virtual Environments, Git and GitHub</h1><div class="rem"><b>Remember it</b><ul><li><b>In one line:</b> Git is a save point for your code.</li><li><b>Think of it like:</b> save points in a video game.</li><li><b>Don't forget:</b> The three steps: Add, Commit, Push.</li></ul></div>
 <h2>Python</h2>
 <ul>
 <li><code>import</code>, <code>from x import y</code>, writing your own module</li>
@@ -842,7 +1132,7 @@ def main():
 if __name__ == &quot;__main__&quot;:
     main()
 </code></pre><div class="done"><button class="btn alt" data-done="modules-07_modules_venv_git">Mark as complete</button></div></section>
-<section class="page" id="p-modules-08_automation" data-title="Module 08: Automation with the Standard Library" hidden><h1>Module 08: Automation with the Standard Library</h1>
+<section class="page" id="p-modules-08_automation" data-title="Module 08: Automation with the Standard Library" hidden><h1>Module 08: Automation with the Standard Library</h1><div class="rem"><b>Remember it</b><ul><li><b>In one line:</b> Teach Python to do your boring jobs.</li><li><b>Think of it like:</b> a robot assistant.</li><li><b>Don't forget:</b> Do a dry run first before moving or deleting files.</li></ul></div>
 <h2>Concepts</h2>
 <ul>
 <li><code>pathlib</code>, <code>os</code>, <code>shutil</code> (files and folders)</li>
@@ -883,7 +1173,7 @@ def parse_log_line(line):
     m = LOG_RE.match(line.strip())
     return m.groupdict() if m else None
 </code></pre></details><div class="done"><button class="btn alt" data-done="modules-08_automation">Mark as complete</button></div></section>
-<section class="page" id="p-modules-09_testing_debugging" data-title="Module 09: Testing and Debugging" hidden><h1>Module 09: Testing and Debugging</h1>
+<section class="page" id="p-modules-09_testing_debugging" data-title="Module 09: Testing and Debugging" hidden><h1>Module 09: Testing and Debugging</h1><div class="rem"><b>Remember it</b><ul><li><b>In one line:</b> A test is a safety net for your code.</li><li><b>Think of it like:</b> a seat belt.</li><li><b>Don't forget:</b> Test the odd cases: empty, zero, negative, wrong type.</li></ul></div>
 <h2>Concepts</h2>
 <ul>
 <li><code>pytest</code>: test functions, <code>assert</code>, <code>pytest.raises</code>, <code>parametrize</code>, fixtures</li>
@@ -908,7 +1198,7 @@ def parse_log_line(line):
 # breakpoint()
 print(divide(10, 2))
 </code></pre><div class="done"><button class="btn alt" data-done="modules-09_testing_debugging">Mark as complete</button></div></section>
-<section class="page" id="p-modules-10_web_and_apis" data-title="Module 10: Web and APIs" hidden><h1>Module 10: Web and APIs</h1>
+<section class="page" id="p-modules-10_web_and_apis" data-title="Module 10: Web and APIs" hidden><h1>Module 10: Web and APIs</h1><div class="rem"><b>Remember it</b><ul><li><b>In one line:</b> An API lets your program ask another program for data.</li><li><b>Think of it like:</b> a waiter: you order, the kitchen answers.</li><li><b>Don't forget:</b> Set a timeout and check the status code (200 means OK).</li></ul></div>
 <h2>Concepts</h2>
 <ul>
 <li>HTTP: methods (GET, POST, PUT, DELETE), status codes (200, 201, 400, 404, 500)</li>
@@ -935,7 +1225,7 @@ try:
 except requests.RequestException as err:
     print(&quot;Request failed:&quot;, err)
 </code></pre><div class="done"><button class="btn alt" data-done="modules-10_web_and_apis">Mark as complete</button></div></section>
-<section class="page" id="p-modules-11_data_analysis" data-title="Module 11: Data Analysis with pandas" hidden><h1>Module 11: Data Analysis with pandas</h1>
+<section class="page" id="p-modules-11_data_analysis" data-title="Module 11: Data Analysis with pandas" hidden><h1>Module 11: Data Analysis with pandas</h1><div class="rem"><b>Remember it</b><ul><li><b>In one line:</b> pandas is Excel that you control with code.</li><li><b>Think of it like:</b> a spreadsheet you can program.</li><li><b>Don't forget:</b> <code>groupby</code> = split, count, combine.</li></ul></div>
 <h2>Concepts</h2>
 <ul>
 <li><code>DataFrame</code>, <code>read_csv</code>, <code>head</code>, <code>info</code>, <code>describe</code></li>
@@ -963,7 +1253,7 @@ df = pd.DataFrame(
 print(df.groupby(&quot;region&quot;)[&quot;revenue&quot;].sum().sort_values(ascending=False))
 print(df[df[&quot;revenue&quot;] &gt; 100])
 </code></pre><div class="done"><button class="btn alt" data-done="modules-11_data_analysis">Mark as complete</button></div></section>
-<section class="page" id="p-modules-12_fastapi_and_sql" data-title="Module 12: FastAPI and SQL" hidden><h1>Module 12: FastAPI and SQL</h1>
+<section class="page" id="p-modules-12_fastapi_and_sql" data-title="Module 12: FastAPI and SQL" hidden><h1>Module 12: FastAPI and SQL</h1><div class="rem"><b>Remember it</b><ul><li><b>In one line:</b> SQL asks questions to a table. FastAPI opens a door to your data.</li><li><b>Think of it like:</b> SQL is a librarian, FastAPI is the front desk.</li><li><b>Don't forget:</b> <code>WHERE</code> filters rows before grouping. <code>HAVING</code> filters after.</li></ul></div>
 <h2>SQL (SQLite)</h2>
 <pre><code class="language-sql">CREATE TABLE todos (id INTEGER PRIMARY KEY, title TEXT NOT NULL, done INTEGER DEFAULT 0);
 INSERT INTO todos (title) VALUES ('Learn Python');
@@ -991,7 +1281,7 @@ for row in conn.execute(&quot;SELECT id, title, done FROM todos&quot;):
     print(row)
 conn.close()
 </code></pre><div class="done"><button class="btn alt" data-done="modules-12_fastapi_and_sql">Mark as complete</button></div></section>
-<section class="page" id="p-modules-13_advanced_python" data-title="Module 13: Advanced Python" hidden><h1>Module 13: Advanced Python</h1>
+<section class="page" id="p-modules-13_advanced_python" data-title="Module 13: Advanced Python" hidden><h1>Module 13: Advanced Python</h1><div class="rem"><b>Remember it</b><ul><li><b>In one line:</b> A decorator wraps a function. A generator gives one item at a time.</li><li><b>Think of it like:</b> gift wrap around a gift, and a vending machine.</li><li><b>Don't forget:</b> <code>yield</code> pauses and can continue. <code>return</code> ends.</li></ul></div>
 <h2>Concepts</h2>
 <ul>
 <li><strong>Closures:</strong> inner function remembers outer variables</li>
@@ -1099,7 +1389,7 @@ async def main():
     print(await asyncio.gather(fetch(&quot;A&quot;, 0.3), fetch(&quot;B&quot;, 0.2), fetch(&quot;C&quot;, 0.1)))
 asyncio.run(main())
 </code></pre><div class="done"><button class="btn alt" data-done="modules-13_advanced_python">Mark as complete</button></div></section>
-<section class="page" id="p-modules-14_professional_python" data-title="Module 14: Professional Python Development" hidden><h1>Module 14: Professional Python Development</h1>
+<section class="page" id="p-modules-14_professional_python" data-title="Module 14: Professional Python Development" hidden><h1>Module 14: Professional Python Development</h1><div class="rem"><b>Remember it</b><ul><li><b>In one line:</b> Write code that other people can read.</li><li><b>Think of it like:</b> a tidy desk.</li><li><b>Don't forget:</b> Good names, small functions, one job each.</li></ul></div>
 <h2>Concepts</h2>
 <ul>
 <li><strong>Type hints:</strong> <code>list[int]</code>, <code>dict[str, float]</code>, <code>Optional[str]</code> (or <code>str | None</code>), <code>Union</code>, <code>TypeVar</code> and generics; check with <strong>mypy</strong></li>
@@ -1179,7 +1469,7 @@ class OrderService:
 svc = OrderService(MemoryStorage())
 svc.place([Item(&quot;Book&quot;, 300, 2), Item(&quot;Pen&quot;, 20)])
 </code></pre><div class="done"><button class="btn alt" data-done="modules-14_professional_python">Mark as complete</button></div></section>
-<section class="page" id="p-modules-15_advanced_databases" data-title="Module 15: Advanced Database Development" hidden><h1>Module 15: Advanced Database Development</h1>
+<section class="page" id="p-modules-15_advanced_databases" data-title="Module 15: Advanced Database Development" hidden><h1>Module 15: Advanced Database Development</h1><div class="rem"><b>Remember it</b><ul><li><b>In one line:</b> A join glues two tables together using a shared key.</li><li><b>Think of it like:</b> an index at the back of a book makes search fast.</li><li><b>Don't forget:</b> A transaction is all or nothing.</li></ul></div>
 <h2>Concepts</h2>
 <ul>
 <li><strong>Joins:</strong> INNER, LEFT, (RIGHT, FULL); <strong>subqueries</strong>; <code>GROUP BY</code> + <code>HAVING</code>; window functions (<code>ROW_NUMBER</code>, <code>RANK</code>)</li>
@@ -1268,7 +1558,7 @@ except RuntimeError:
     pass
 print(&quot;rows after rollback:&quot;, db.execute(&quot;SELECT COUNT(*) FROM orders&quot;).fetchone()[0])
 </code></pre><div class="done"><button class="btn alt" data-done="modules-15_advanced_databases">Mark as complete</button></div></section>
-<section class="page" id="p-modules-16_advanced_backend" data-title="Module 16: Advanced Backend Development" hidden><h1>Module 16: Advanced Backend Development</h1>
+<section class="page" id="p-modules-16_advanced_backend" data-title="Module 16: Advanced Backend Development" hidden><h1>Module 16: Advanced Backend Development</h1><div class="rem"><b>Remember it</b><ul><li><b>In one line:</b> Login shows who you are. Permission shows what you can do.</li><li><b>Think of it like:</b> an ID card, and which rooms the card opens.</li><li><b>Don't forget:</b> Never store plain passwords. Store a hash. Keep secrets out of code.</li></ul></div>
 <h2>Concepts</h2>
 <ul>
 <li><strong>FastAPI in depth:</strong> Pydantic validation (<code>Field</code>), response models, dependencies (<code>Depends</code>), routers, error handlers</li>
@@ -1349,7 +1639,7 @@ def create_item(item: ItemIn, tasks: BackgroundTasks):
     tasks.add_task(send_email, item.name)
     return new
 </code></pre><div class="done"><button class="btn alt" data-done="modules-16_advanced_backend">Mark as complete</button></div></section>
-<section class="page" id="p-modules-17_deployment_devops" data-title="Module 17: Deployment and DevOps" hidden><h1>Module 17: Deployment and DevOps</h1>
+<section class="page" id="p-modules-17_deployment_devops" data-title="Module 17: Deployment and DevOps" hidden><h1>Module 17: Deployment and DevOps</h1><div class="rem"><b>Remember it</b><ul><li><b>In one line:</b> Docker packs your app with everything it needs.</li><li><b>Think of it like:</b> a lunchbox with the whole meal inside.</li><li><b>Don't forget:</b> Secrets go in environment variables, never in Git.</li></ul></div>
 <h2>Concepts</h2>
 <ul>
 <li><strong>Linux essentials:</strong> <code>ls cd pwd cat grep find chmod ps top df tail -f</code>, <code>ssh</code>, <code>systemctl</code></li>
@@ -2997,8 +3287,18 @@ var order=links.map(function(a){return a.dataset.id});
 var side=document.getElementById('side');
 var done={};
 try{done=JSON.parse(localStorage.getItem('pzh-done')||'{}')}catch(e){}
-function paint(){links.forEach(function(a){a.classList.toggle('ok',!!done[a.dataset.id])});
- [].forEach.call(document.querySelectorAll('[data-done]'),function(b){b.textContent=done[b.dataset.done]?'Completed (click to undo)':'Mark as complete'})}
+var DAY=86400000,STEPS=[1,3,7,14,30];
+function norm(v){return v===true?{t:Date.now(),s:0}:(v&&typeof v==='object'?v:null)}
+function info(id){var v=norm(done[id]);if(!v)return null;var fin=v.s>=STEPS.length;var left=fin?0:Math.ceil((v.t+STEPS[v.s]*DAY-Date.now())/DAY);return {v:v,fin:fin,left:left,due:!fin&&left<=0}}
+function save(){try{localStorage.setItem('pzh-done',JSON.stringify(done))}catch(x){}}
+function paint(){
+ var dueList=[];
+ links.forEach(function(a){var i=info(a.dataset.id);a.classList.toggle('ok',!!i&&!i.due);a.classList.toggle('due',!!i&&i.due);if(i&&i.due)dueList.push(a)});
+ [].forEach.call(document.querySelectorAll('[data-done]'),function(b){var i=info(b.dataset.done);
+  b.textContent=!i?'Mark as complete':(i.due?'I reviewed this today':(i.fin?'Mastered (click to undo)':'Done. Next review in '+i.left+' day(s) (click to undo)'))});
+ var box=document.getElementById('due');
+ if(box){box.innerHTML=dueList.length?'<div class="duebox"><b>Review today ('+dueList.length+')</b><br>'+dueList.map(function(a){return '<a href="#'+a.dataset.id+'">'+a.textContent+'</a>'}).join(' &middot; ')+'</div>':''}
+}
 function show(){
  var id=location.hash.slice(1)||'home';
  if(!document.getElementById('p-'+id))id='home';
@@ -3019,7 +3319,7 @@ window.addEventListener('hashchange',show);
 document.getElementById('menu').onclick=function(){side.classList.toggle('open')};
 document.addEventListener('click',function(e){
  var t=e.target;
- if(t.dataset&&t.dataset.done){var k=t.dataset.done;done[k]=!done[k];try{localStorage.setItem('pzh-done',JSON.stringify(done))}catch(x){}paint()}
+ if(t.dataset&&t.dataset.done){var k=t.dataset.done,i=info(k);if(!i)done[k]={t:Date.now(),s:0};else if(i.due)done[k]={t:Date.now(),s:i.v.s+1};else delete done[k];save();paint()}
  if(t.classList&&t.classList.contains('cp')){var txt=t.parentNode.querySelector('code').innerText;
   var ok=function(){t.textContent='Copied!';setTimeout(function(){t.textContent='Copy'},1200)};
   if(navigator.clipboard){navigator.clipboard.writeText(txt).then(ok)}else{var ta=document.createElement('textarea');ta.value=txt;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');ok()}catch(x){}document.body.removeChild(ta)}}
