@@ -19,7 +19,7 @@ while also building **fluent spoken English and presentation skills** for interv
 ## Quick start
 
 ```bash
-git clone <your-repo-url> python-zero-to-hero
+git clone https://github.com/Neuro-eng/python-zero-to-hero.git
 cd python-zero-to-hero
 python -m venv .venv
 source .venv/bin/activate        # Windows: .venv\Scripts\activate
@@ -47,7 +47,7 @@ pytest -q                        # runs tests for the solutions
 
 ## Roadmap
 
-See [docs/roadmap.md](docs/roadmap.md) (16 weeks) and [docs/certifications.md](docs/certifications.md).
+See [docs/roadmap.md](https://github.com/Neuro-eng/python-zero-to-hero/blob/main/docs/roadmap.md) (16 weeks) and [docs/certifications.md](https://github.com/Neuro-eng/python-zero-to-hero/blob/main/docs/certifications.md).
 
 ## Contributing
 

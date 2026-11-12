@@ -6,3 +6,4 @@ __pycache__/
 .env
 .DS_Store
 english/recordings/
+english/practice_log.json
